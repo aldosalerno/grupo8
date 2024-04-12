@@ -8,15 +8,15 @@
 
 :root {
     --color-primary: #003C43;
-    --color-seundary: #135D66;
+    --color-secundary: #135D66;
     --color-tertiary: #77B0AA;
-    --color-cuerter: #E3FEF7;
+    --color-cuarter: #E3FEF7;
 }
 
 /* Formulario Nueva Tarea*/
 
 form {
-    background-color: #121212;
+    background-color: var(--color-primary);
     padding: 25px;
     width: 220px;
     border-radius: 10px;
@@ -25,7 +25,7 @@ form {
 
 legend {
     font-size: x-large;
-    color: yellow;
+    color: var(--color-cuarter);
     font-weight: 600;
     margin-bottom: 25px;
 }
@@ -37,7 +37,7 @@ legend {
 }
 
 label {
-    color: #FFFFFF;
+    color: var(--color-cuarter);
     font-size: large;
     font-weight: 900;
 }
@@ -79,17 +79,17 @@ button {
     height: 40px;
     border-radius: 5px;
     border: none;
-    background-color: #EEEEEEEE;
+    background-color: var(--color-cuarter);
     font-size: medium;
     font-weight: 600;
 }
 
 button:hover {
-    background-color: #787878;
+    background-color: var(--color-secundary);
 }
 
 button:focus {
-    background-color: #232323;
+    background-color: var(--color-tertiary);
     border-style: solid;
     border-width: 2px;
     border-color: #FFFFFF;

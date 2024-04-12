@@ -1,8 +1,17 @@
 
-
+/* Fuentes */
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
 
 /* font-family: "Roboto Slab*/
+
+/* Variables */
+
+:root {
+    --color-primary: #003C43;
+    --color-seundary: #135D66;
+    --color-tertiary: #77B0AA;
+    --color-cuerter: #E3FEF7;
+}
 
 /* Formulario Nueva Tarea*/
 

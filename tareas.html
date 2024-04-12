@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/css/form-newtask.css">
+    <title>Gestion de Proyectos</title>
+</head>
+
+<body>
+    <header>
+        <h1>TAREAS</h1>
+    </header>
+    <HR></HR>
+    <NAV>
+            <ul>
+                <li><a href="index.html">Pagina Inicial</a></li>
+                <li><a href="tareas.html">Tareas</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="nosotros.html">Quienes somos</a></li>
+                <hr>
+            </ul>
+    </NAV>
+    <main>
+        
+        <form class="nuevaTarea">
+            <legend>Generar nueva tarea</legend>
+            <div class="label-container">
+                <label>Área asignada</label>
+                <input class="input-text" type="text" placeholder="Front-end">
+            </div>
+            <div class="label-container">
+                <label>Título</label>
+                <input class="input-text" type="text" placeholder="Tarea"> 
+            </div>
+            <div class="label-container">
+                <label>Persona encargada</label>
+                <input class="input-text" type="text" placeholder="Juan Perez">
+            </div>
+            <div class="label-container">
+                <label>Descripción de Tarea</label>
+                <textarea class="input-text" placeholder="Detalle de la tarea"></textarea>
+            </div> 
+            <div class="label-container">   
+                <label for="fechainicio">Fecha de inicio:</label>
+                <input type="date" name="fechainicio" id="fechainicio" required>
+            </div>
+            <div class="label-container">   
+                <label for="fechafin">Fecha de Finalizacion:</label>
+                <input type="date" name="fechafin" id="fechafin" required>
+            </div>
+
+            <button type="button" onclick="">Crear Tarea</button> 
+        </form>
+
+    </main>
+
+    <footer>
+        <hr>
+        <p>Comision 24140 - Grupo 8  </p>     
+    </footer>
+    
+</body>
+</html>

@@ -13,6 +13,37 @@
     --color-cuarter: #E3FEF7;
 }
 
+.unstyled {
+    all: unset;
+}
+/* Barra de Navegacion */
+
+.nav-container {
+    display: flex;
+    flex-direction: row;    
+}
+.nav-container-li {
+    background-color: var(--color-primary);
+    color: var(--color-cuarter);
+    
+    
+    
+    margin: 5px;
+    width: 50px;
+    height: 34px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 /* Formulario Nueva Tarea*/
 
 form {
@@ -94,6 +125,7 @@ button:focus {
     border-width: 2px;
     border-color: #FFFFFF;
 }
+
 
 
 

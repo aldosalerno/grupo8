@@ -13,29 +13,36 @@
     --color-cuarter: #E3FEF7;
 }
 
-.unstyled {
-    all: unset;
-}
+
 /* Barra de Navegacion */
 
 .nav-container {
-    display: flex;
-    flex-direction: row;    
-}
-.nav-container-li {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
     background-color: var(--color-primary);
-    color: var(--color-cuarter);
-    
-    
-    
-    margin: 5px;
-    width: 50px;
-    height: 34px;
+
+    li {
+        float: left;
+    }
+    li a {
+            display: block;
+            color: var(--color-cuarter);
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+    li a:hover {
+            background-color: var(--color-secundary);
+        }
+    }
+.active {
+    background-color: var(--color-tertiary);
 }
 
-
-
-
+/* IMPORTANT ALTA cambiar el color de la letra en .active */
 
 
 

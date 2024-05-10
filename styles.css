@@ -29,23 +29,31 @@
     li {
         float: left;
     }
+
     li a {
             display: block;
             color: var(--color-cuarter);
             text-align: center;
             padding: 14px 16px;
             text-decoration: none;
+            font-weight: 600;
         }
 
     li a:hover {
             background-color: var(--color-secundary);
+            
         }
-    }
+    
+
+    
+}
 .active {
-    background-color: var(--color-tertiary);
+        background-color: var(--color-tertiary);
+        color: #003C43 !important;
+        
 }
 
-/* IMPORTANT ALTA cambiar el color de la letra en .active */
+
 
 /*Footer*/
 
@@ -219,6 +227,30 @@ button:focus {
 
 
 
+.main-contacto{
+    background-color: var(--color-tertiary);
+    padding-top: 30px;
+    padding-bottom: 30px;
+    display: flex;
+    justify-content:space-around;
+    padding: auto;
+}
+
+.contacto-nosotros {
+    background-color: var(--color-primary);
+
+    h3 {
+        padding: 15px;
+        color: var(--color-cuarter);
+    }
+
+    li {
+        color: var(--color-cuarter);
+        padding-top: 15px;
+        font-weight: 600;
+    }
+
+}
 
 
 

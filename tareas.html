@@ -3,65 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
-
-    <title>Gestion de Proyectos</title>
+    <title>Diagrama de Gantt</title>
+    <link rel="stylesheet" href="gantt.css">
+    <script type="text/javascript" src="gantt.js" defer></script>
 </head>
-
 <body>
-    <header>
-        <h1>TAREAS</h1>
-    </header>
-    <nav>
-        <ul class="nav-container">
-            <li><a href="index.html">Pagina Inicial</a></li>
-            <li><a class="active" href="tareas.html">Tareas</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-        </ul>
-    </nav>
-    <main>
-        
-        <form class="nuevaTarea">
-            <h3>Generar nueva tarea</h3>
-            <div class="label-container">
-                <label>Área asignada</label>
-                <input class="input-text" type="text" placeholder="Front-end">
+    <div class="container">
+        <h1>Diagrama de Gantt</h1>
+        <div class="main-grid">
+            <div class="form-container">
+                <h2>Agregar Tarea</h2>
+                <label for="taskName">Nombre de la tarea:</label>
+                <input type="text" id="taskName" required>
+                <label for="startDate">Fecha de inicio:</label>
+                <input type="date" id="startDate" required>
+                <label for="endDate">Fecha de finalización:</label>
+                <input type="date" id="endDate" required>
+                <label for="color">Color:</label>
+                <select id="color" required>
+                    <option value="#007bff">Azul</option>
+                    <option value="#e83e8c">Rosa</option>
+                    <option value="#28a745">Verde</option>
+                    <option value="#fd7e14">Naranja</option>
+                    <option value="#343a40">Negro</option>
+                    <option value="#dc3545">Rojo</option>
+                    <option value="#ffc107">Amarillo</option>
+                    <option value="#6f42c1">Púrpura</option>
+                </select>
+                <label for="progress">Progreso (%):</label>
+                <input type="number" id="progress" min="0" max="100" value="0" required>
+                <button onclick="addTask()">Confirmar tarea</button>
             </div>
-            <div class="label-container">
-                <label>Título</label>
-                <input class="input-text" type="text" placeholder="Tarea"> 
-            </div>
-            <div class="label-container">
-                <label>Persona encargada</label>
-                <input class="input-text" type="text" placeholder="Juan Perez">
-            </div>
-            <div class="label-container">
-                <label>Descripción de Tarea</label>
-                <textarea class="input-text" placeholder="Detalle de la tarea"></textarea>
-            </div> 
-            <div class="label-container">   
-                <label for="fechainicio">Fecha de inicio:</label>
-                <input type="date" name="fechainicio" id="fechainicio" required>
-            </div>
-            <div class="label-container">   
-                <label for="fechafin">Fecha de Finalizacion:</label>
-                <input type="date" name="fechafin" id="fechafin" required>
-            </div>
-
-            <button type="button" onclick="">Crear Tarea</button> 
-        </form>
-
-    </main>
-
+            <div id="gantt" class="gantt-container"></div>
+        </div>
+    </div>
     <footer class="footer">
-        <hr>
         <div class="footer-container">
             <div class="footer-row">
-                
-                <div class="footer-links"><h4>© Comisión 24140 - Grupo 8</h4></div>
+                <div class="footer-links">
+                    <h4>© Comisión 24140 - Grupo 8</h4>
+                </div>
                 <div class="footer-links">
                     <h4>Sobre nosotros</h4>
                     <ul>
@@ -78,14 +59,8 @@
                         <a href="#"><i class="fab fa-linkedin"></i></a>
                     </div>
                 </div>
-                
             </div>
-            
-            
-            
         </div>
-
     </footer>
-    
 </body>
 </html>

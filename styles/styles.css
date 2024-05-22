@@ -227,7 +227,7 @@ button:focus {
 
 
 
-.main-contacto{
+main {
     background-color: var(--color-tertiary);
     padding-top: 30px;
     padding-bottom: 30px;
@@ -235,6 +235,34 @@ button:focus {
     justify-content:space-around;
     padding: auto;
 }
+
+.index-main-container {
+    padding: auto;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    p {
+        font-size: large;
+        color: var(--color-cuarter);
+        margin-bottom: 25px;
+        font-weight: 600;
+    }
+
+    dt {
+        font-size: large;
+        color: var(--color-cuarter);
+        margin-bottom: 25px;
+        font-weight: 600;
+    }
+
+    dd {
+        font-size: medium;
+        color: var(--color-secundary);
+        margin-bottom: 15px;
+        font-weight: 600;
+    }
+}
+
 
 .contacto-nosotros {
     background-color: var(--color-primary);

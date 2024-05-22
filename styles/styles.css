@@ -75,11 +75,8 @@ body {
 
 /* Barra de Navegacion */
 
-.nav {
-    grid-area: nav;
-}
-/*display: block;*/
 .nav{
+    grid-area: nav;
     height: auto;
     list-style-type: none;
     margin: 5px;
@@ -218,25 +215,16 @@ button:focus {
     max-width: 1200px;
     margin: 0 auto;
 
+    h2 {
+        font-size: 30px;
+        color: var(--color-primary);
+        margin-bottom: 30px;
+    }
+
     p {
-        font-size: large;
-        color: var(--color-cuarter);
-        margin-bottom: 25px;
-        font-weight: 600;
-    }
-
-    dt {
-        font-size: large;
-        color: var(--color-cuarter);
-        margin-bottom: 25px;
-        font-weight: 600;
-    }
-
-    dd {
-        font-size: medium;
-        color: var(--color-secundary);
-        margin-bottom: 15px;
-        font-weight: 600;
+        font-size: 20px;
+        color: var(--color-primary);
+        margin-bottom: 30px;
     }
 }
 

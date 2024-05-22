@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="./styles/styles.css">
-    <link rel="stylesheet" type="text/css" href="./styles/contacto.css">
+    <link rel="stylesheet" type="text/css" href="/styles/styles.css">
+    <link rel="stylesheet" type="text/css" href="/styles/contacto.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
@@ -12,21 +12,20 @@
     <title>Gestion de Proyectos</title>
 </head>
 
-<body>
-    <header>
+<body class="body">
+    <header class="header">
         <h1>CONTACTO</h1>
     </header>
 
-    
-    <nav>
+    <nav class="nav">
         <ul class="nav-container">
             <li><a href="index.html">Pagina Inicial</a></li>
             <li><a href="tareas.html">Tareas</a></li>
             <li><a class="active" href="contacto.html">Contacto</a></li>
         </ul>
     </nav>
-    <main class="main-contacto">
-                <!-- URL a donde se dirige el formulario con que metodo POST - GET y que vista voy a tener Target en una nueva pestaña -->
+    <main class="main">
+        <section class="main-contacto">
             <form action="URL" method="get" target="_blank">
 
                 <label for="name">Nombre:</label>
@@ -56,15 +55,16 @@
 
             <div class="contacto-nosotros">
                 <h3>Grupo 8 - Comisión 24140</h3>
-                    <ul>
-                        <li>Denise Romero Day</li>
-                        <li>Guido Fossati Navarro</li>
-                        <li>Daniel Grima</li>
-                        <li>Aldo Salerno</li>
-                    </ul>
+                <ul>
+                    <li>Denise Romero Day</li>
+                    <li>Guido Fossati Navarro</li>
+                    <li>Daniel Grima</li>
+                    <li>Aldo Salerno</li>
+                </ul>
             </div>
-            
+        </section>       
     </main>
+    <!-- URL a donde se dirige el formulario con que metodo POST - GET y que vista voy a tener Target en una nueva pestaña -->
      
 
     <footer class="footer">
@@ -97,6 +97,7 @@
         </div>
 
     </footer>
-    
+
+
 </body>
 </html>

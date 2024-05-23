@@ -514,6 +514,7 @@ th {
 }
 
 @media screen and (max-width:600px)  {
+    
     .body {
         grid-template-columns: auto;
         grid-template-rows: 50px 25px 1fr auto;
@@ -547,6 +548,34 @@ th {
 
     }
 
+    .contacto-section-container {
+
+
+        form {
+
+            width: 200px;
+            
+            input {
+                width: 200px;
+            }
+
+            textarea {
+                width: 200px;
+            }
+
+            button {
+                width: 200px;
+            }
+        
+        }
+
+        
+        
+
+
+
+    }
+
 }
 
 @media screen and (min-width:601px) and (max-width:1000px)  {
@@ -561,6 +590,8 @@ th {
         gap: 0px;
 
     }
+
+    
 
     .main-grid {
         grid-template:

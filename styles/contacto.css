@@ -57,6 +57,28 @@ textarea:focus {
 
 /* Bottones */
 
+button { 
+    width: 200px;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--color-cuarter);
+    font-size: medium;
+    font-weight: 600;
+
+}
+
+button:hover {
+    background-color: var(--color-secundary);
+}
+
+button:focus {
+    background-color: var(--color-tertiary);
+    border-style: solid;
+    border-width: 2px;
+    border-color: #FFFFFF;
+}
+
 
 
 

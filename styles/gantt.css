@@ -1,9 +1,3 @@
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-}
 
 .container {
     margin: 30px auto;
@@ -35,27 +29,7 @@ body {
     grid-area: gantt-container;
 }
 
-@media screen and (min-width: 320px) and (max-width: 600px)  {
 
-    .main-grid {
-        grid-template:
-        "form-container"1fr
-        "gantt-container"1fr;
-        
-    }
-    
-}
-
-@media screen and (min-width: 600px) and (max-width: 900px)  {
-
-    .main-grid {
-        grid-template:
-        "form-container"1fr
-        "gantt-container"auto;
-        
-    }
-    
-}
 
 .form-container {
     display: flex;

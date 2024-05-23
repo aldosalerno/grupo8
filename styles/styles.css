@@ -500,9 +500,10 @@ th {
 /* ---------------------MEDIA QUERIES--------------------- */
 
 
-@media screen and (max-width:350px)  {
+@media screen and (max-width:451px)  {
+    
     nav {
-        width: 350px;
+        width: 451px;
     }
 
 }
@@ -566,7 +567,11 @@ th {
 
 }
 
-@media(max-width:1000px) {
+@media(max-width:1151px) {
+
+    nav {
+        width: 451px;
+    }
 
     
     .footer-row {

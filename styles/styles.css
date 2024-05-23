@@ -460,8 +460,10 @@ th {
         "nav"
         "main"
         "footer";
+        gap: 25px;
 
     }
+
 
     .main-grid {
         grid-template:
@@ -487,6 +489,7 @@ th {
         "nav nav nav"
         "main main main"
         "footer footer footer";
+        gap: 0px;
 
     }
 
@@ -501,6 +504,8 @@ th {
 }
 
 @media(max-width:1000px) {
+
+    
     .footer-row {
         text-align: center;
     }

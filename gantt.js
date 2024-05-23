@@ -84,13 +84,13 @@ class Gantt {
 }
 
 function loadTasks() { 
-    // carga las tareas desde el localStorage
+    // carga las tareas desde el localStorage usando JSON
     const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
     return tasks;
 }
 
 function saveTasks(tasks) {
-    // guarda las tareas en el localStorage
+    // guarda las tareas en el localStorage usando JSON
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 

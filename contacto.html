@@ -9,6 +9,28 @@
     <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
 
     <title>Gestion de Proyectos</title>
+
+    <script>
+        function validarFormulario() {
+            
+            var email = document.getElementById("mail").value;
+        
+            
+            var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        
+            
+            if (!regex.test(email)) {
+                
+                alert("El correo electrónico no es válido, introduce uno nuevo por favor");
+                
+                return false;
+            }
+        
+            
+            return true;
+        }
+        </script>
+        
 </head>
 
 <body class="body">
@@ -26,7 +48,7 @@
     
     <main class="main">
         <section class="contacto-section-container">
-            <form action="URL" method="get" target="_blank">
+            <form action="URL" method="get" target="_blank" onsubmit="return validarFormulario()">
 
                 <label for="name">Nombre:</label>
                 <input type="text" name="name" id="name" size="30" maxlength="50" required>

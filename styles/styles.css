@@ -351,6 +351,14 @@ th {
     border-radius: 3px;
     font-size: 12px;
 }
+
+.urgente-checkbox {
+    display: flex;
+    align-items: center;
+    
+}
+
+
 /* END GANTT
 
 

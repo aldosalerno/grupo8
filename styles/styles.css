@@ -125,10 +125,10 @@ nav {
 /* Contacto */
 
 .contacto-section-container{
-
     padding-top: 60px;
     padding-bottom: 30px;
     display: flex;
+    flex-wrap: wrap;
     justify-content:space-around;
     padding: auto;
 
@@ -137,6 +137,7 @@ nav {
         padding: 25px;
         width: 400px;
         border-radius: 10px;
+        margin-bottom: 20px;
 
         legend {
             font-size: x-large;
@@ -210,9 +211,9 @@ nav {
 .contacto-nosotros {
     background-color: var(--color-primary);
     padding: 25px;
-    margin-top: 30px;
     width: 220px;
     border-radius: 10px;
+    margin-bottom: 20px;
 
 
     h3 {

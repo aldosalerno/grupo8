@@ -209,22 +209,24 @@ nav {
 }
 
 .contacto-nosotros {
+    float: center;
     background-color: var(--color-primary);
-    padding: 25px;
     width: 220px;
+    padding: 25px;
     border-radius: 10px;
     margin-bottom: 20px;
 
 
-    h3 {
-        padding: 15px;
+    h4 {
+        margin-bottom: 10px;
         color: var(--color-cuarter);
     }
 
-    li {
-        color: var(--color-cuarter);
+    p {
+        color: var(--color-tertiary);
         padding-top: 15px;
         font-weight: 600;
+        margin: 10px;
     }
 
 }

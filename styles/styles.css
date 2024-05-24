@@ -411,6 +411,23 @@ th {
         margin-bottom: 10px;
     }
 
+    a {
+        display: inline-block;
+        min-width: 40px;
+        width: 40px;
+        margin: 0 10px 10px 0;
+        text-align: center;
+        line-height: 40px;
+        border-radius: 50%;
+        color: #FFFFFF;
+        transition: all .5s ease;
+    }
+
+    a:hover {
+        background-color: var(--color-tertiary);
+        align-items: center;
+    }
+
     p {
 
         text-align: center;

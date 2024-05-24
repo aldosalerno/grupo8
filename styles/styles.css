@@ -47,6 +47,12 @@ body {
 
 .header {
     grid-area: header;
+    padding: 7px;
+    margin: auto;
+
+    img {
+        height: 70px;
+    }
 }
 
 /* END HEADER */
@@ -104,10 +110,100 @@ nav {
 
 /* Index */
 
+.image-main {
+    padding: 20px;
+    margin: 0 auto; 
+    opacity: 0.8;
+    align-self: center;
+    border: red;
+
+    img {
+        width: 90vw;
+        height: 600px;
+        
+        
+    }
+
+}
+
+.image-main:hover {
+    -webkit-animation: 2s chicle 1;
+}
+
+@-webkit-keyframes chicle {
+    30%{
+        -webkit-transform:
+                scaleX(1.25) scaleY(0.75);
+    }
+
+    50%{
+        -webkit-transform:
+                scaleX(0.75) scaleY(1.25);
+    }
+
+    60%{
+        -webkit-transform:
+                scaleX(1.15) scaleY(0.85);
+    }
+}
+
+.image-main-container {
+    display: flex;
+    flex-direction: column;
+    padding: auto;
+    max-width: 1000px;
+    margin: auto;
+
+    img {
+        height: 300px;
+        width: 300px;
+    }
+
+}
+
+.img-click:hover {
+    -webkit-animation: 1.7s click 1;
+}
+
+@-webkit-keyframes click {
+    35%,75%{
+        -webkit-transform:scale(0.8);            
+    }
+
+    50%{
+        -webkit-transfor: scale(1.1);
+    }
+}
+
+
+.description-main-container {
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    
+    
+    h2 {
+        margin-left: 20px;
+        font-size: 30px;
+        color: var(--color-primary);
+        margin-bottom: 30px;
+    }
+
+    p {
+        color: var(--color-primary);
+    }
+
+    .ultimo-p{
+        color: var(--color-secundary);
+        font-weight: bold;
+    }
+}
+
 .index-main-container {
+    
     padding: auto;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 auto; 
 
     h2 {
         margin-left: 20px;
@@ -123,12 +219,34 @@ nav {
         margin-bottom: 30px;
     }
 
+}
+
+.text-main-container {
+    
+    padding: auto;
+    max-width: 700px;
+    margin: 0; 
+
+    h2 {
+        margin-left: 20px;
+        font-size: 30px;
+        color: var(--color-primary);
+        margin-bottom: 30px;
+    }
+
+    p {
+        margin-left: 60px;
+        font-size: 20px;
+        color: var(--color-primary);
+        margin-bottom: 30px;
+    }
+
+    
     .ultimo-p{
         color: var(--color-secundary);
         font-weight: bold;
     }
-
-    }
+}
 
 /* Contacto */
 
@@ -554,8 +672,13 @@ th {
 
     }
 
-
-
+    .image-main{
+        
+        img {
+            height: 300px;
+        }
+    }
+    
     .main-grid {
         grid-template:
         "form-container"1fr

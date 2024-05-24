@@ -110,17 +110,25 @@ nav {
     margin: 0 auto;
 
     h2 {
+        margin-left: 20px;
         font-size: 30px;
         color: var(--color-primary);
         margin-bottom: 30px;
     }
 
     p {
+        margin-left: 60px;
         font-size: 20px;
         color: var(--color-primary);
         margin-bottom: 30px;
     }
-}
+
+    .ultimo-p{
+        color: var(--color-secundary);
+        font-weight: bold;
+    }
+
+    }
 
 /* Contacto */
 

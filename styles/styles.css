@@ -107,6 +107,7 @@ nav {
     grid-area: main;
     padding: 5px;
     background-color: var(--color-tertiary);
+    background: linear-gradient(90deg, rgba(119,176,170,1) 0%, rgba(0,60,67,1) 100%);
 }
 
 /* Index */
@@ -300,7 +301,7 @@ nav {
 
     
     .ultimo-p{
-        color: var(--color-secundary);
+        color: var(--color-cuarter);
         font-weight: bold;
     }
 }
@@ -581,6 +582,7 @@ th {
             border: 4px solid var(--color-tertiary);
             width: 130px; 
             height: 175px;
+            filter: blur(-25px);
         } 
 
         h2 {

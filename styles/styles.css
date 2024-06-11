@@ -92,6 +92,8 @@ nav {
             
         }
 
+     
+        
     li:last-child {
         float: right;
 
@@ -101,7 +103,20 @@ nav {
             vertical-align: center;
             color: var(--color-tertiary);
         }
+
+       
     }
+
+    /* button {
+        background-color: var(--color-tertiary);
+        color: var(--color-primary);
+        border: none;
+        padding: 0.5em 1em;
+        border-radius: 9px;
+        font-weight: bold;
+        font-size: 1em;
+        
+    }*/
  
 }
 
@@ -112,6 +127,8 @@ nav {
 }
 
 /* END NAV */
+
+
 
 /* ---------------------MAIN--------------------- */
 

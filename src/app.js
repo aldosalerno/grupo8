@@ -1,19 +1,27 @@
-const express = require('express')
-var path = require('path');
-const app = express()
-const port = 3000
 
+const express = require('express');
+const app = express();
+var path = require('path');
+const port = 3000
 
 
 // set the view engine to ejs
 app.set('view engine', 'ejs');
 
-// set the public directory
-app.use(express.static(path.join(__dirname, 'public')))
+app.set('views', path.join(__dirname, 'views'))
 
-app.get('/', (req, res) => {
-  res.render('index.html')
-})
+
+app.get("/", (req, res) => {
+  res.render("index.ejs");
+});
+
+
+app.get("/login", (req, res) => {
+  res.render("login.ejs");
+});
+
+
+
 
 
 

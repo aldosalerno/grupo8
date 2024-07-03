@@ -16,8 +16,18 @@ app.get("/", (req, res) => {
 });
 
 
-app.get("/login", (req, res) => {
-  res.render("login.ejs");
+app.get("/tareas", (req, res) => {
+  res.render("tareas.ejs");
+});
+
+
+app.get("/nosotros", (req, res) => {
+  res.render("nosotros.ejs");
+});
+
+
+app.get("/contacto", (req, res) => {
+  res.render("contacto.ejs");
 });
 
 

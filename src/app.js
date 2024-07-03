@@ -4,6 +4,10 @@ const app = express();
 var path = require('path');
 const port = 3000
 
+const taskRoutes = require('./routes/taskRoutes');
+const taskController = require('./controllers/taskController');
+
+app.use('/tasks', taskRoutes);
 
 // set the view engine to ejs
 app.set('view engine', 'ejs');

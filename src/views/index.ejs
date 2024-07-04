@@ -1,12 +1,104 @@
-<!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title>
-  </head>
+<%- include ("template/head.ejs", {title: "Tiddy"}); %>
 
-  <body>
-    
-  </body>
-</html
+
+<body class="body">
+
+  <%- include ("template/header.ejs"); %>
+
+  <%- include ("template/nav.ejs"); %>
+
+  <main class="main">
+        
+  <!-- <section class="section-login">        
+               <form action="">
+                   <legend>Log In</legend>
+                       <label for="email">Email</label>
+                       <input type="email" id="email" name="email" placeholder="Email">
+                       <label for="password">Password</label>
+                       <input type="password" id="password" name="password" placeholder="Password">
+                   <button type="submit" class="btn btn-primary">Login</button>
+               </form>
+   </section>  -->
+
+
+   <div class="image-main">
+       <img src="img/gantt4.png" alt="imagen abstracta">
+   </div>
+   <div class="index-main-container">
+
+       <h2>Porque usar este sistema</h2>
+
+       <p><strong>Tiddy</strong> es una herramienta sencilla y eficiente para la gestión de tareas, diseñada específicamente para permitir la carga y visualización de tareas en un diagrama de Gantt. Perfecta para equipos y profesionales que necesitan una manera clara de ver y organizar sus proyectos sin complicaciones adicionales.
+       </p>
+
+       <section class="description-main-container">
+           <div class="image-main-container">
+               <div class="img-click"><img src="img/gantt3.webp" alt=" imagen abstracta"></div>
+               <div class="img-click"><img src="img/gantt1.jpg" alt=" imagen 3d de un Diagrama de Gantt"></div>
+           </div>
+           <div class="text-main-container">
+               <h2>Características Clave:</h2>
+
+                  <h4>Carga de Tareas Simple:</h4>
+
+                   <ul>
+                       <li>
+                           <b>Nombre de la Tarea:</b> Introduce un nombre claro y descriptivo para cada tarea, facilitando su identificación rápida. Fecha de Inicio y Fecha de Fin: Define las fechas de inicio y fin para planificar adecuadamente cada tarea.
+                       </li>
+                       
+                       <li>
+                           <b>Color de Representación en el Gantt:</b> Asigna un color a cada tarea para mejorar la visualización y organización en el diagrama de Gantt.
+                       </li>
+                       
+                       <li>
+                           <b>Porcentaje de Cumplimiento:</b> Indica el progreso de la tarea con un porcentaje, proporcionando una rápida visión de su estado.
+                       </li>
+                   </ul>
+
+                   <h4>Visualización en Diagrama de Gantt:</h4>
+
+                   <ul>
+                       <li>
+                           <b>Representación Gráfica Clara:</b> Muestra todas las tareas en un diagrama de Gantt interactivo, permitiendo una visión general del proyecto.
+                       </li>
+                       
+                       <li>
+                           <b>Interfaz Intuitiva:</b> Visualiza las tareas de manera clara y ordenada, facilitando la comprensión del progreso del proyecto.
+                       </li>
+                   </ul> 
+                   <h4>Beneficios:</h4>
+
+                   <ul>
+                       <li>
+                           <b>Simplicidad en la Gestión:</b> Carga y visualiza tareas fácilmente sin funciones complicadas, enfocándose en lo esencial para la planificación.
+                       </li>
+                       
+                       <li>
+                           <b>Transparencia y Claridad:</b> La representación visual mediante colores y porcentajes de cumplimiento facilita la comprensión del estado del proyecto.
+                       </li>
+                       
+                       <li>
+                           <b>Eficiencia Mejorada:</b> Al visualizar el proyecto de manera clara, los equipos pueden identificar rápidamente los avances y las áreas que requieren atención.
+                       </li>
+
+                   </ul>
+               <p class="ultimo-p"> 
+                   Tiddy es la herramienta ideal para aquellos que buscan una solución sencilla para la carga y visualización de tareas. Con su enfoque en la simplicidad y la claridad, <strong> Tiddy </strong> permite a los equipos mantener una visión organizada y actualizada de sus proyectos.
+               </p>
+           </div>
+       </section>
+   </div>
+</main>
+
+
+  <%- include ("template/footer.ejs"); %>
+
+  <script src="/Js/index.js" defer></script>
+  
+</body>
+
+
+
+
+
+

@@ -140,9 +140,7 @@ function generateGantt() {
     if (tasks.length > 0) {
         const ganttTasks = tasks.map(task => [task.name, task.startDate, task.endDate, task.color, task.progress]);
         new Gantt(ganttTasks);
-    } else {
-        alert('Agregue al menos una tarea.');
-    }
+    }      
 }
 
 

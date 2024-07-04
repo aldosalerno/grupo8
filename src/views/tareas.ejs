@@ -1,0 +1,51 @@
+<%- include ("template/head.ejs", {title: "Tareas"}); %>
+
+
+<body class="body">
+
+  <%- include ("template/header.ejs"); %>
+
+  <%- include ("template/nav.ejs"); %>
+
+    <main class="main">
+    <div class="tareas-main-container">
+        <div class="main-grid">
+            <div class="form-container">
+                <h2>Agregar Tarea</h2>
+                <label for="taskName">Nombre de la tarea:</label>
+                <input type="text" id="taskName" required>
+                <label for="startDate">Fecha de inicio:</label>
+                <input type="date" id="startDate" required>
+                <label for="endDate">Fecha de finalización:</label>
+                <input type="date" id="endDate" required>
+                <label for="color">Color:</label>
+                <select id="color" required>
+                    <option value="">Seleccione un Color</option>
+                    <option value="#007bff">Azul</option>
+                    <option value="#e83e8c">Rosa</option>
+                    <option value="#28a745">Verde</option>
+                    <option value="#fd7e14">Naranja</option>
+                    <option value="#343a40">Negro</option>
+                    <option value="#dc3545">Rojo</option>
+                    <option value="#ffc107">Amarillo</option>
+                    <option value="#6f42c1">Púrpura</option>
+                </select>
+                <label for="progress">Progreso (%):</label>
+                <input type="number" id="progress" min="0" max="100" value="0" required>
+                <div class="Urgente-Checkbox">
+                    <input type="checkbox" id="Urgente" name="Urgente">
+                    <label for="Urgente">Urgente</label>
+                </div>
+                <button onclick="addTask()">Confirmar tarea</button>
+            </div>
+            <div id="gantt" class="gantt-container"></div>
+        </div>
+    </div>
+    </main>
+
+  <%- include ("template/footer.ejs"); %>
+
+  <script src="/Js/index.js" defer></script>
+  <script src="/Js/gantt.js" defer></script>
+  
+</body>

@@ -7,7 +7,10 @@ const port = 3000
 const taskRoutes = require('./routes/taskRoutes');
 const taskController = require('./controllers/taskController');
 
-app.use('/tasks', taskRoutes);
+const usuariosRoutes = require('./routes/usuariosRoutes');
+const usuariosController = require('./controllers/usuariosController');
+
+
 
 // set the view engine to ejs
 app.set('view engine', 'ejs');
@@ -20,33 +23,14 @@ app.use(express.static(path.join(__dirname, '../public')));
 app.get("/", (req, res) => {
   res.render("index");
 });
-
-app.post("/token" , (req, res) => {
-  const token = null;
-
-  res.send( { token } );
-});
-
-app.get("/public", (req, res) => {
-  res.send ('I`m public!');
-});
-
-app.get("/private", (req, res) => {
-  try {
-      res.send ('I`m private!');
-    } 
-  catch (error) {
-      res.status(401).send( {error: error.message} );
-    }
-  
-
-});
-
+app.use('/', usuariosRoutes);
 
 app.get("/tareas", (req, res) => {
   res.render("tareas.ejs");
 });
 
+
+app.use('/tasks', taskRoutes);
 
 app.get("/nosotros", (req, res) => {
   res.render("nosotros.ejs");

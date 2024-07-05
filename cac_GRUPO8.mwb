@@ -4,6 +4,7 @@ CREATE TABLE IF NOT EXISTS USUARIOS (
 `usuario_ID` int NOT NULL AUTO_INCREMENT UNIQUE, 
 `usuario_NAME` varchar(25) NOT NULL UNIQUE, 
 `usuario_EMAIL` varchar(25) NOT NULL UNIQUE,
+`usuario_PASS` varchar(25) NOT NULL UNIQUE,
 PRIMARY KEY (`usuario_ID`)
 );
 
@@ -28,4 +29,12 @@ CREATE TABLE IF NOT EXISTS TASKS (
 `usuario_ID` int NOT NULL,
 PRIMARY KEY (`task_ID`),
 FOREIGN KEY (usuario_ID) REFERENCES USUARIOS(usuario_ID)
+);
+
+CREATE TABLE IF NOT EXISTS CONTACTS (
+    `contact_ID` int NOT NULL AUTO_INCREMENT UNIQUE,	
+    `contact_NAME` varchar(255) NOT NULL,
+    `contact_LASTNAME` varchar(255) NOT NULL,
+    `contact_EMAIL` varchar(255) NOT NULL,
+    PRIMARY KEY (`contact_ID`)
 );

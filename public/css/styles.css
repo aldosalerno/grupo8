@@ -141,28 +141,96 @@ nav {
 
 /* Index */
 
-.login-active {
-    visibility: hidden;
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    z-index: 99;
-    background-color: rgba(0, 0, 0, 0.7);
-    bottom:0;
+.container-login-singup {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+
+.section-login {
+    display: flex;
+    background-color: var(--color-primary);
+    width: 450px;
+    height: 300px;
+    padding: 30px;
+    margin: 30px;
+
+    form {
+        background-color: var(--color-primary);
+        padding: 25px;
+        width: 400px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+
+        legend {
+            font-size: x-large;
+            color: var(--color-cuarter);
+            font-weight: 600;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        label {
+            color: var(--color-cuarter);
+            font-size: large;
+            font-weight: 900;
+        }
+
+        input {
+            margin-top: 3px;
+            margin-bottom: 5px;
+            width: 400px;
+            height: 25px;
+            border-radius: 5px;
+            border: none;
+            background-color: #EEEEEEEE;
+            font-size: medium;
+            font-weight: 600; 
+            }
+
+        input:focus {
+            background-color: #FFFFFF;
+        }
+
+        .login-form-button {
+            position: relative;
+            right: 0;
+            bottom: -26%;
+
+            width: 400px;
+            height: 40px;
+            border-radius: 5px;
+            border: none;
+            background-color: var(--color-cuarter);
+            font-size: medium;
+            font-weight: 600;
+
+        }
+
+        .login-form-button:hover {
+            background-color: var(--color-secundary);
+        }
+
+        .login-form-button:focus {
+            background-color: var(--color-tertiary);
+            border-style: solid;
+            border-width: 2px;
+            border-color: #FFFFFF;
+        }
+    }
 
 }
 
 
-.section-login {
-    visibility: hidden;
+
+.section-signup {
     display: flex;
-    position: fixed;
-    z-index: 100;
-    left: calc(50% - 250px);
-    top: calc(50% - 125px);
     background-color: var(--color-primary);
     width: 450px;
-    height: 258px;
+    height: 300px;
+    padding: 30px;
+    margin: 30px;
 
     form {
         background-color: var(--color-primary);
@@ -202,8 +270,8 @@ nav {
             background-color: #FFFFFF;
         }
 
-        button { 
-            margin-top: 3px;
+        .login-form-button {
+
             width: 400px;
             height: 40px;
             border-radius: 5px;
@@ -214,11 +282,11 @@ nav {
 
         }
 
-        button:hover {
+        .login-form-button:hover {
             background-color: var(--color-secundary);
         }
 
-        button:focus {
+        .login-form-button:focus {
             background-color: var(--color-tertiary);
             border-style: solid;
             border-width: 2px;

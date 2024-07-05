@@ -9,24 +9,45 @@
 
   <main class="main">
         
-  <!-- <section class="section-login">        
-               <form action="">
-                   <legend>Log In</legend>
-                       <label for="email">Email</label>
-                       <input type="email" id="email" name="email" placeholder="Email">
-                       <label for="password">Password</label>
-                       <input type="password" id="password" name="password" placeholder="Password">
-                   <button type="submit" class="btn btn-primary">Login</button>
-               </form>
-   </section>  -->
+
+<div class="index-main-container">
+    <div class="container-login-singup">
+
+    <section class="section-login">
+            
+            <form id="loginform" action="/" method="post">
+                <legend>Log In</legend>
+                <label>Mail</label>
+                <input type="email" placeholder="Email" id="email-login" required autofocus>
+                <label>Contraseña</label>
+                <input type="password" placeholder="Contraseña" id="password-login" required autofocus>
+                <input class="login-form-button" type="submit" value="Ingresar" onlick="loginform()">
+            </form>
+        </section>
+
+        <section class="section-signup">
+            
+            <form id="signupform">
+                <legend>Registro</legend>
+                <label>Nombre</label>
+                <input type="text" placeholder="Guido Fossati" id="name-singup" required autofocus>
+                <label>Mail</label>
+                <input type="email" placeholder="Tiddy@gmail.com" id="email-singup" required>
+                <label>Contraseña</label>
+                <input type="password" placeholder="QueNoSea123PorFavor" id="password-singup" required>
+                <input class="login-form-button" type="submit" value="Registrar" onclick="signupform()">
+            </form>
+
+        </section>
+        
+    </div>
+
+    
 
 
-   <div class="image-main">
-       <img src="img/gantt4.png" alt="imagen abstracta">
-   </div>
-   <div class="index-main-container">
+    
 
-       <h2>Porque usar este sistema</h2>
+       <h1>Porque usar Tiddy para organizar tus tareas</h1>
 
        <p><strong>Tiddy</strong> es una herramienta sencilla y eficiente para la gestión de tareas, diseñada específicamente para permitir la carga y visualización de tareas en un diagrama de Gantt. Perfecta para equipos y profesionales que necesitan una manera clara de ver y organizar sus proyectos sin complicaciones adicionales.
        </p>

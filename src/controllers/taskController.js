@@ -2,7 +2,7 @@ const db = require('../db/db');
 
 
 
-const getAllTasks = () => {
+const getAllTasks = (req, res) => {
     const sql = 'SELECT * FROM tasks';
 
     db.query('SELECT * FROM tasks', (err, results) => {
@@ -12,5 +12,8 @@ const getAllTasks = () => {
             console.log('Tareas obtenidas: ' + results);
         }
     });
-}
+};
 
+module.exports = {
+    getAllTasks
+};

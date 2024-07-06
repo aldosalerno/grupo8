@@ -8,25 +8,23 @@ const port = 3000
 // set the view engine to ejs
 app.set('view engine', 'ejs');
 
-app.set('views', path.join(__dirname, 'views'))
+app.set('views', path.join(__dirname, '/src/views'));
 
-app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static(path.join(__dirname, '/public')));
 
-
-//Usuarios y tasks
-//app.use('/', require('./src/routes/usuariosRoutes'));
-
-//app.use('/tasks', require('./src/routes/taskRoutes'));
+app.use(express.json());
 
 
 //Routes
 app.use("/", require('./src/routes/indexRouter'));
 
-app.use("/contacto", require('./src/routes/contactoRoutes'));
+app.use("/contacto", require('./src/routes/contactoRouter'));
 
-app.use("/nosotros", require('./src/routes/nosotrosRoutes'));
+app.use("/nosotros", require('./src/routes/nosotrosRouter'));
 
-app.use("/tareas", require('./src/routes/tareasRoutes'));
+app.use("/tareas", require('./src/routes/tareasRouter'));
+
+app.use("/usuario", require('./src/routes/usuarioRouter'));
 
 
 

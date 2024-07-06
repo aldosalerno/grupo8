@@ -15,4 +15,9 @@ connection.connect(function(err) {
     }
 });
 
+connection.query('SELECT * FROM usuarios'), (err, results) => {
+    if (err) throw err;
+    console.log(results);
+}     
+
 module.exports = connection;    

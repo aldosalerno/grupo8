@@ -1,5 +1,4 @@
 const db = require('../db/db');
-const { router } = require('../routes/indexRouter');
 
 
 const nuevoUsuario = (req, res) => {
@@ -40,8 +39,8 @@ const eliminarUsuario = (req, res) => {
 
   const mostrarUsuario = (req, res) => {
       const { id } = req.params;
-      const sql = `select * from usuarios where usuario_ID= ${id}`;
-      db.query(sql, (err, results) => {
+      const sql = `select * from usuarios where usuario_ID= ?`;
+      db.query(sql, id,(err, results) => {
         if (err) throw err;
           res.json( { } );
             
@@ -50,8 +49,8 @@ const eliminarUsuario = (req, res) => {
       };
 
 
-const usuarios = (req, res) => {
-    res.render("usuario.ejs");
+const usuario = (req, res) => {
+    res.render("usuario");
  }
 
 
@@ -60,5 +59,5 @@ const usuarios = (req, res) => {
 
 
  module.exports = {
-   usuarios
+   usuario, nuevoUsuario, actualizarUsuario, eliminarUsuario, mostrarUsuario
   };

@@ -1,5 +1,7 @@
 <%- include ("template/head.ejs", {title: "Tiddy"}); %>
 
+ 
+
 
 <body class="body">
 
@@ -15,7 +17,7 @@
 
     <section class="section-login">
             
-            <form id="loginform" action="/login" method="post">
+            <form id="loginform" action="/login" method="Post">
                 <legend>Log In</legend>
                 <label>Mail</label>
                 <input type="email" placeholder="Email" id="email-login" required autofocus>
@@ -30,12 +32,12 @@
             <form id="signupform" action="/create" method="post">
                 <legend>Registro</legend>
                 <label>Nombre</label>
-                <input type="text" placeholder="Guido Fossati" id="name_signup" required autofocus>
+                <input type="text" name="name" placeholder="Guido Fossati" id="name_signup" required autofocus>
                 <label>Mail</label>
-                <input type="email" placeholder="Tiddy@gmail.com" id="email_signup" required>
+                <input type="email" placeholder="Tiddy@gmail.com" name="email" id="email_signup" required>
                 <label>Contraseña</label>
-                <input type="password" placeholder="QueNoSea123PorFavor" id="password_signup" required>
-                <input class="login-form-button" type="submit" value="Registrar" onclick="" id="conectar">
+                <input type="password" name="password"  placeholder="QueNoSea123PorFavor" id="password_signup" required>
+                <input class="login-form-button" type="submit" value="Registrar" onclick="" id="registrar">
             </form>
 
         </section>

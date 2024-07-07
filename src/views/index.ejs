@@ -15,27 +15,27 @@
 
     <section class="section-login">
             
-            <form id="loginform" action="/" method="post">
+            <form id="loginform" action="/login" method="post">
                 <legend>Log In</legend>
                 <label>Mail</label>
                 <input type="email" placeholder="Email" id="email-login" required autofocus>
                 <label>Contraseña</label>
                 <input type="password" placeholder="Contraseña" id="password-login" required autofocus>
-                <input class="login-form-button" type="submit" value="Ingresar" onlick="loginform()">
+                <input class="login-form-button" type="submit" value="Ingresar" onlick="" id="conectar">
             </form>
         </section>
 
         <section class="section-signup">
             
-            <form id="signupform">
+            <form id="signupform" action="/create" method="post">
                 <legend>Registro</legend>
                 <label>Nombre</label>
-                <input type="text" placeholder="Guido Fossati" id="name-singup" required autofocus>
+                <input type="text" placeholder="Guido Fossati" id="name_signup" required autofocus>
                 <label>Mail</label>
-                <input type="email" placeholder="Tiddy@gmail.com" id="email-singup" required>
+                <input type="email" placeholder="Tiddy@gmail.com" id="email_signup" required>
                 <label>Contraseña</label>
-                <input type="password" placeholder="QueNoSea123PorFavor" id="password-singup" required>
-                <input class="login-form-button" type="submit" value="Registrar" onclick="signupform()">
+                <input type="password" placeholder="QueNoSea123PorFavor" id="password_signup" required>
+                <input class="login-form-button" type="submit" value="Registrar" onclick="" id="conectar">
             </form>
 
         </section>
@@ -114,7 +114,7 @@
 
   <%- include ("template/footer.ejs"); %>
 
-  <script src="/Js/index.js" defer></script>
+ 
   
 </body>
 

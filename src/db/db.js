@@ -20,4 +20,6 @@ connection.query('SELECT * FROM usuarios'), (err, results) => {
     console.log(results);
 }     
 
+
+
 module.exports = connection;    

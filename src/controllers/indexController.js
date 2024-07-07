@@ -1,17 +1,21 @@
 const db = require('../db/db');
 
 
-
 const createUsuario = (req, res) => {
+  const data = req.body;
 
-  const { nombre, email, contraseña } = req.body;
-  const sql = `insert into usuarios (nombre, apellido, email, contraseña) values (?, ?, ?, ?)`;
-  db.query(sql, [nombre, email, contraseña], (err, results) => {
-    if (err) throw err;
-    res.json({ message: "Usuario creado correctamente" });
-  });
+  console.log(data);
 
- 
+  
+  let email = data.email;
+  let contraseña = data.password;
+  let usuario = data.name;
+    
+
+    db.query('INSERT INTO usuarios (usuario_NAME, usuario_EMAIL, usuario_PASS) VALUES (?, ?, ?)', [usuario, email, contraseña], (err, results) => {
+        if (err) throw err;
+        res.json({ message: 'Usuario creado' });
+    });
 };
 
 const consultarUsuario = (req, res) => {
@@ -24,5 +28,5 @@ const index = (req, res) => {
   };
 
 module.exports = {
-  index, createUsuario, consultarUsuario
+  index, consultarUsuario, createUsuario
 };

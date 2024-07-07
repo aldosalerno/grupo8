@@ -6,6 +6,7 @@ const controller = require('../controllers/indexController');
 
 router.get("/", controller.index);
 
-router.post("/", controller.createUsuario);
+router.post("/create", controller.createUsuario);
+
 
 module.exports = router;

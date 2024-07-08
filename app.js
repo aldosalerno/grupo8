@@ -2,13 +2,14 @@
 const express = require('express');
 const app = express();
 var path = require('path');
+const morgan = require('morgan');
 const port = 3000
 
 
 // set the view engine to ejs
 
 
-
+app.use(morgan('dev'));
 
 app.set('view engine', 'ejs');
 

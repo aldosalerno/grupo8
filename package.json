@@ -4,7 +4,8 @@
   "description": "Pagina Web de tareas con visualizacion Gantt creada con HTML, Css y Js vanillas + Node.js, express y EJS + MySQL en base de datos",
   "main": "app.js",
   "scripts": {
-    "test": "run app.js"
+    "test": "run app.js",
+    "start": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,7 @@
     "body-parser": "^1.20.2",
     "ejs": "^3.1.10",
     "express": "^4.19.2",
+    "morgan": "^1.10.0",
     "mysql2": "^3.10.2"
   }
 }

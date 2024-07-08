@@ -1,53 +1,20 @@
 const db = require('../db/db');
 
 
-const nuevoUsuario = (req, res) => {
-  const { id } = req.params;
-  const { nombre, apellido, yearbirth} = req.body;
-  const sql = `update usuarios set nombre=?, apellido=?, yearbirth=? where usuario_ID= ${id}`;
-    db.query(sql, [nombre, apellido, yearbirth, req.body.usuario_ID], (err, results) => {
-      if (err) throw err;
-        res.json( { message: "Usuario actualizado correctamente" });
-          
-        }
-      );
-    };
+const createUsuario = (req, res) => {
+  const { body } = req.body;
 
-const actualizarUsuario = (req, res) => {
+  console.log( body );
+  
+  const sql = 'INSERT INTO usuarios (usuario_NAME, usuario_EMAIL, usuario_PASS) VALUES (?, ?, ?)';
 
-    const { id } = req.params;
-    const { nombre, apellido, yearbirth } = req.body;
-    const sql = `update usuarios set nombre=?, apellido=?, yearbirth=? where usuario_ID= ${id}`;
-      db.query(sql, [nombre, apellido, yearbirth, req.body.usuario_ID], (err, results) => {
+
+ 
+    db.query(sql, [body], (err, results) => {
         if (err) throw err;
-          res.json( { message: "Usuario actualizado correctamente" });
-            
-          }
-        );
-      };
-
-const eliminarUsuario = (req, res) => {
-  const { id } = req.params;
-  const sql = `delete from usuarios where usuario_ID= ${id}`;
-  db.query(sql, [req.body.usuario_ID], (err, results) => {
-    if (err) throw err;
-      res.json( { message: "Usuario eliminado correctamente" });
-        
-      }
-    );
-  };
-
-  const mostrarUsuario = (req, res) => {
-      const { id } = req.params;
-      const sql = `select * from usuarios where usuario_ID= ?`;
-      db.query(sql, id,(err, results) => {
-        if (err) throw err;
-          res.json( { } );
-            
-          }
-        );
-      };
-
+        res.json({ message: 'Usuario creado' });
+    });
+};
 
 const usuario = (req, res) => {
     res.render("usuario");
@@ -55,9 +22,6 @@ const usuario = (req, res) => {
 
 
 
-
-
-
  module.exports = {
-   usuario, nuevoUsuario, actualizarUsuario, eliminarUsuario, mostrarUsuario
+   usuario, createUsuario
   };

@@ -1,6 +1,5 @@
 <%- include ("template/head.ejs", {title: "Usuario"}); %>
 
-
 <body class="body">
 
   <%- include ("template/header.ejs"); %>
@@ -10,14 +9,15 @@
   <main class="main">
 
     <div class="usuario Information">
-            <p> Nombre:  </p>
-            <p> Apellido:  </p>
-            <p> Email: </p>
-    
-
+            <p> Username: <%= Username %> </p>
+            <p> Nombre: <%= Nombre %> </p>
+            <p> Apellido: <%= Apellido %> </p>
+            <p> Email: <%= Email %> </p>
+            <p> Año de nacimiento: <%= Date %> </p>
     </div>
     <section class="Actualizar-Usuario">
-        <form action="URL" method="get" target="_blank" onsubmit="return">
+        <form method="post" action="/usuarios/update/<%= id %>">
+
 
             <label for="name">Nombre:</label>
             <input type="text" name="name" id="name" size="30" maxlength="50" required>
@@ -29,8 +29,10 @@
             <label for="mail">Correo Electrónico: </label>
             <input type="email" name="mail" id="mail" size="30" maxlength="60" required>
 
+            <label for="Date"> Año de nacimiento: </label>
+            <input type="number" name="Date" id="Date" size="4" maxlength="4" required>
 
-            
+
             <button type="submit">Enviar</button>
              
         </form>
@@ -39,27 +41,37 @@
 
           <section class="section-login">
                   
-                  <form id="loginform" action="/login" method="Post">
+                  <form id="loginform" action="/usuarios/login" method="Post">
                       <legend>Log In</legend>
                       <label>Mail</label>
-                      <input type="email" placeholder="Email" id="email-login" required autofocus>
+                      <input type="email" name="email" placeholder="Email" id="email-login" required autofocus>
                       <label>Contraseña</label>
-                      <input type="password" placeholder="Contraseña" id="password-login" required autofocus>
+                      <input type="password" name="password" placeholder="Contraseña" id="password-login" required autofocus>
                       <input class="login-form-button" type="submit" value="Ingresar" onlick="" id="conectar">
                   </form>
               </section>
       
               <section class="section-signup">
                   
-                  <form id="signupform" action="/usuario/create" method="POST">
+                  <form id="signupform" action='/usuarios/create' method="POST">
                       <legend>ESTE</legend>
                       <label>Nombre</label>
-                      <input type="text" name="name" placeholder="Guido Fossati" id="name_signup" required autofocus>
+                      <input type="text" name="nombre" placeholder="Guido Fossati" id="name_signup" required autofocus>
                       <label>Mail</label>
                       <input type="email" placeholder="Tiddy@gmail.com" name="email" id="email_signup" required>
                       <label>Contraseña</label>
                       <input type="password" name="password"  placeholder="QueNoSea123PorFavor" id="password_signup" required>
                       <input class="login-form-button" type="submit" value="Registrar" onclick="" id="registrar">
+                  </form>
+
+                  <form id="eliminar" action="/usuarios/delete/" method="delete">
+                      <legend>Eliminar</legend>
+                      <label>Email</label>
+                      <input type="email" name="email" placeholder="Tiddy@gmail.com" id="email_eliminar" required>
+                      <label>Contraseña</label>
+                      <input type="password" name="password"  placeholder="QueNoSea123PorFavor" id="password_eliminar" required>
+                      <input class="login-form-button" type="submit" value="Eliminar" onclick="" id="eliminar">
+
                   </form>
       
               </section>

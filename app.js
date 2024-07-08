@@ -6,31 +6,32 @@ const morgan = require('morgan');
 const port = 3000
 
 
-// set the view engine to ejs
+
+
 
 
 app.use(morgan('dev'));
 
+// set the view engine to ejs
 app.set('view engine', 'ejs');
-
 app.set('views', path.join(__dirname, '/src/views'));
 
 app.use(express.static(path.join(__dirname, '/public')));
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 
+
 //Routes
-app.use("/", require('./src/routes/indexRouter'));
+ app.use("/", require('./src/routes/indexRouter'));
 
-app.use("/contacto", require('./src/routes/contactoRouter'));
+// app.use("/contacto", require('./src/routes/contactoRouter'));
 
-app.use("/nosotros", require('./src/routes/nosotrosRouter'));
+// app.use("/nosotros", require('./src/routes/nosotrosRouter'));
 
-app.use("/tareas", require('./src/routes/tareasRouter'));
+// app.use("/tareas", require('./src/routes/tareasRouter'));
 
-app.use("/usuario", require('./src/routes/usuarioRouter'));
+ app.use("/usuarios", require('./src/routes/usuariosRouter'));
 
 
 

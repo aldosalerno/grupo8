@@ -30,20 +30,38 @@ const mostrarUsuario = (req, res) => {
       });
 };
 
+
+
+
+
+
+
 const actualizarUsuario = (req, res) => {
   const id = req.params.id;
-  const { nombre, apellido, email, yearBirth } = req.body;
-  
-  console.log(id + "Actualizate hdp");
-  console.log(id, nombre, apellido, email, yearBirth);
+  const { nombre, apellido, yearBirth } = req.body;
+  ;
+  console.log(id, nombre, apellido, yearBirth);
 
-  const sql = 'UPDATE usuarios_info SET usuario_NAME = ?, usuario_APELLIDO = ?, usuario_EMAIL = ?, usuario_YEARBIRTH = ? WHERE usuario_ID = ?';
+  const sql = 'UPDATE usuarios_info SET info_NAME = ?, info_LASTNAME = ?, usuario_YEARBIRTH = ? WHERE usuario_ID = ?';
 
-  db.query(sql, [nombre, apellido, email, yearBirth, id], (err, results) => {
+  db.query(sql, [nombre, apellido, yearBirth, id], (err, results) => {
       if (err) throw err;
-      res.render("usuarios", {Username: "", Email: "", Nombre: results[0].info_NAME, Apellido: results[0].info_LASTNAME, Date: results[0].info_YEARBIRTH, id: results[0].usuario_ID});
+      res.render("usuarios", {
+        Username: "", 
+        Email: "", 
+        Nombre: results[0].info_NAME, 
+        Apellido: results[0].info_LASTNAME, 
+        Date: results[0].info_YEARBIRTH, 
+        id: results[0].usuario_ID});
     });
 };
+
+
+
+
+
+
+
 
 const deleteUsuario = (req, res) => {
     const id = req.params.id;

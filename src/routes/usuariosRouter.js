@@ -5,12 +5,6 @@ const controller = require('../controllers/usuariosController');
 
 router.get("/", controller.usuarios);
 
-// router.post("/create", function(req, res){
- //    const body = req.body;
- //   console.log(body);
-
-  //  res.send(body);
- // });
 
  router.get(`/mostrar/:id`, controller.mostrarUsuario);
 
@@ -18,7 +12,13 @@ router.get("/", controller.usuarios);
 
  router.post(`/create`, controller.createUsuario);
 
- router.put(`/update/:id`, controller.actualizarUsuario);
+ router.put(`/update/:id`, (req, res) => {
+    const id = req.params.id;
+    const { nombre, lastname, number } = req.body;
+
+
+    res.json({ message: { nombre, lastname, number, id } });
+ });
  
  router.delete(`/delete/:id`, controller.deleteUsuario);
 

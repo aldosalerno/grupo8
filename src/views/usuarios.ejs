@@ -14,26 +14,23 @@
             <p> Apellido: <%= Apellido %> </p>
             <p> Email: <%= Email %> </p>
             <p> Año de nacimiento: <%= Date %> </p>
+            <p> ID: <%= id %> </p>
+
     </div>
+
     <section class="Actualizar-Usuario">
-        <form method="post" action="/usuarios/update/<%= id %>">
+        <form  action="/usuarios/update/1" id="" method="post">
 
 
             <label for="name">Nombre:</label>
-            <input type="text" name="name" id="name" size="30" maxlength="50" required>
-
+            <input type="text" name="nombre" id="name_update" required>
             <label for="lastname">Apellido:</label>
-            <input type="text" name="lastname" id="lastname" size="30" maxlength="50" required>
-
-            <!-- Correo electronico-->
-            <label for="mail">Correo Electrónico: </label>
-            <input type="email" name="mail" id="mail" size="30" maxlength="60" required>
-
-            <label for="Date"> Año de nacimiento: </label>
-            <input type="number" name="Date" id="Date" size="4" maxlength="4" required>
+            <input type="text" name="lastname" id="lastname_update"  required>
+            <label for="number"> Año de nacimiento: </label>
+            <input type="number" name="number" id="number_update" required>
 
 
-            <button type="submit">Enviar</button>
+            <input class="login-form-button" type="submit" value="update" onclick="" id="">
              
         </form>
 
@@ -44,9 +41,9 @@
                   <form id="loginform" action="/usuarios/login" method="Post">
                       <legend>Log In</legend>
                       <label>Mail</label>
-                      <input type="email" name="email" placeholder="Email" id="email-login" required autofocus>
+                      <input type="email" name="email" placeholder="Email" id="email_login" required autofocus>
                       <label>Contraseña</label>
-                      <input type="password" name="password" placeholder="Contraseña" id="password-login" required autofocus>
+                      <input type="password" name="password" placeholder="Contraseña" id="password_login" required autofocus>
                       <input class="login-form-button" type="submit" value="Ingresar" onlick="" id="conectar">
                   </form>
               </section>
@@ -64,7 +61,7 @@
                       <input class="login-form-button" type="submit" value="Registrar" onclick="" id="registrar">
                   </form>
 
-                  <form id="eliminar" action="/usuarios/delete/" method="delete">
+                  <form id="form_eliminar" action="/usuarios/delete/<%= id %>" method="delete">
                       <legend>Eliminar</legend>
                       <label>Email</label>
                       <input type="email" name="email" placeholder="Tiddy@gmail.com" id="email_eliminar" required>
@@ -81,7 +78,7 @@
 </main>
 
 
-
+    <script src="/Js/index.js"></script>
   <%- include ("template/footer.ejs"); %>
 
   

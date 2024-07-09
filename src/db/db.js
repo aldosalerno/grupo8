@@ -1,12 +1,15 @@
 const mysql = require('mysql2');
-const password = require('../secrets.js');
 
 const connection = mysql.createConnection({
     host: 'b7vtuql41mnuu5nzrwwm-mysql.services.clever-cloud.com',
     user: 'us4nbeviy8mir9nt',
-    password: password,
+    password: process.env.PASSWORD,
     database: 'b7vtuql41mnuu5nzrwwm',
+
+    
 });
+
+console.log(process.env.PASSWORD)
 
 connection.connect(function(err) {
     if (err) {

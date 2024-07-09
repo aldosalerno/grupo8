@@ -2,10 +2,10 @@
   "name": "codoacodogrupo8",
   "version": "1.0.0",
   "description": "Pagina Web de tareas con visualizacion Gantt creada con HTML, Css y Js vanillas + Node.js, express y EJS + MySQL en base de datos",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
-    "test": "run app.js",
-    "start": "nodemon app.js"
+    "test": "run index.js",
+    "start": "nodemon index.js"
   },
   "repository": {
     "type": "git",

@@ -1,7 +1,7 @@
 const db = require('../db/db');
 
 
-const createUsuario = (req, res) => {
+const insertUsuario = (req, res) => {
   const { nombre, email, password } = req.body;
 
   console.log(nombre, email, password);
@@ -17,7 +17,7 @@ const createUsuario = (req, res) => {
      });
 };
 
-const mostrarUsuario = (req, res) => {
+const selectUsuario = (req, res) => {
     const id = req.params.id;
     console.log(req.params);
     console.log(id);
@@ -30,37 +30,20 @@ const mostrarUsuario = (req, res) => {
       });
 };
 
-
-
-
-
-
-
-const actualizarUsuario = (req, res) => {
+const updateUsuario = (req, res) => {
   const id = req.params.id;
-  const { nombre, apellido, yearBirth } = req.body;
-  ;
-  console.log(id, nombre, apellido, yearBirth);
+  const { nombre, lastname, number } = req.body;
+  
+  console.log(id, nombre, lastname, number);
 
-  const sql = 'UPDATE usuarios_info SET info_NAME = ?, info_LASTNAME = ?, usuario_YEARBIRTH = ? WHERE usuario_ID = ?';
+  const sql = 'UPDATE usuarios_info SET info_NAME = ?, info_LASTNAME = ?, info_YEARBIRTH = ? WHERE usuario_ID = ?';
 
-  db.query(sql, [nombre, apellido, yearBirth, id], (err, results) => {
+  db.query(sql, [nombre, lastname, number, id], (err, results) => {
       if (err) throw err;
-      res.render("usuarios", {
-        Username: "", 
-        Email: "", 
-        Nombre: results[0].info_NAME, 
-        Apellido: results[0].info_LASTNAME, 
-        Date: results[0].info_YEARBIRTH, 
-        id: results[0].usuario_ID});
+      console.log(results);
+      res.redirect('/usuarios/mostrar/' + id);  
     });
 };
-
-
-
-
-
-
 
 
 const deleteUsuario = (req, res) => {
@@ -101,5 +84,5 @@ const usuarios = (req, res) => {
 
 
  module.exports = {
-   usuarios, createUsuario, deleteUsuario, mostrarUsuario, usuarioLogin, actualizarUsuario
+   usuarios, insertUsuario, deleteUsuario, selectUsuario, usuarioLogin, updateUsuario
   };

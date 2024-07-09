@@ -6,19 +6,22 @@ const controller = require('../controllers/usuariosController');
 router.get("/", controller.usuarios);
 
 
- router.get(`/mostrar/:id`, controller.mostrarUsuario);
+ router.get(`/mostrar/:id`, controller.selectUsuario);
 
  router.get('/login', controller.usuarioLogin);
 
- router.post(`/create`, controller.createUsuario);
+ router.post(`/create`, controller.insertUsuario);
 
- router.post(`/update/:id`, (req, res) => {
-    const id = req.params.id;
-    const { nombre, lastname, number } = req.body;
+ // router.post(`/update/:id`, (req, res) => {
+ //    const id = req.params.id;
+ //    const { nombre, lastname, number } = req.body;
+// 
+ //    console.log(nombre, lastname, number, id);
 
+ //    res.json({ message: { nombre, lastname, number, id } });
+//  });
 
-    res.json({ message: { nombre, lastname, number, id } });
- });
+router.post(`/update/:id`, controller.updateUsuario);
  
  router.delete(`/delete/:id`, controller.deleteUsuario);
 

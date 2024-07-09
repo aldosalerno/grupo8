@@ -7,7 +7,7 @@ const insertUsuario = (req, res) => {
   console.log(nombre, email, password);
 
 
-  const sql = 'INSERT INTO usuarios (usuario_NAME, usuario_EMAIL, usuario_PASS) VALUES (?, ?, ?)';
+  const sql = 'INSERT INTO USUARIOS (usuario_USERNAME, usuario_EMAIL, usuario_PASS) VALUES (?, ?, ?)';
 
 
  
@@ -23,13 +23,13 @@ const selectUsuarioIncompleto = (req, res) => {
     console.log(id + " incompleto");
 
 
-    const sql = 'SELECT * FROM usuarios where usuario_ID = ?';
+    const sql = 'SELECT * FROM USUARIOS where usuario_ID = ?';
 
     db.query(sql, [id], (err, results) => {
         if (err) throw err;
         console.log(results);
         res.render("usuarios", {
-            Username: results[0].usuario_NAME, 
+            Username: results[0].usuario_USERNAME, 
             Email: results[0].usuario_EMAIL, 
             Nombre: "", 
             Apellido: "", 
@@ -41,7 +41,7 @@ const selectUsuarioIncompleto = (req, res) => {
 const selectUsuario = (req, res) => {
     const id = req.params.id;
 
-    const sql = 'SELECT * FROM usuarios JOIN usuarios_info on usuarios.usuario_ID = usuarios_info.usuario_ID AND usuarios.usuario_ID = ?;';
+    const sql = 'SELECT * FROM USUARIOS JOIN USUARIOS_INFO on USUARIOS.usuario_ID = USUARIOS_INFO.usuario_ID AND USUARIOS.usuario_ID = ?;';
 
 
      db.query(sql, [id], (err, results) => {
@@ -53,7 +53,7 @@ const selectUsuario = (req, res) => {
                res.redirect('/usuarios/mostrar/incompleto/' + id);
             } else {
                 res.render("usuarios", {
-                    Username: results[0].usuario_NAME, 
+                    Username: results[0].usuario_USERNAME, 
                     Email: results[0].usuario_EMAIL, 
                     Nombre: results[0].info_NAME, 
                     Apellido: results[0].info_LASTNAME, 
@@ -70,7 +70,7 @@ const updateUsuario = (req, res) => {
   
   console.log(id, nombre, lastname, number);
 
-  const sql = 'UPDATE usuarios_info SET info_NAME = ?, info_LASTNAME = ?, info_YEARBIRTH = ? WHERE usuario_ID = ?';
+  const sql = 'UPDATE USUARIOS_INFO SET info_NAME = ?, info_LASTNAME = ?, info_YEARBIRTH = ? WHERE usuario_ID = ?';
 
   db.query(sql, [nombre, lastname, number, id], (err, results) => {
       if (err) throw err;
@@ -84,7 +84,7 @@ const deleteUsuario = (req, res) => {
 
     console.log(id);
 
-    const sql = 'DELETE FROM usuarios WHERE usuario_ID = ?';
+    const sql = 'DELETE FROM USUARIOS WHERE usuario_ID = ?';
     db.query(sql, [id], (err, results) => {
         if (err) throw err;
         res.json({ message: 'Usuario eliminado' });

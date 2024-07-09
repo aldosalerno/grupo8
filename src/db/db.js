@@ -1,24 +1,79 @@
 const mysql = require('mysql2');
+const password = require('../secrets.js');
 
 const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'operation997',
-    database: 'grupo8'
+    host: 'b7vtuql41mnuu5nzrwwm-mysql.services.clever-cloud.com',
+    user: 'us4nbeviy8mir9nt',
+    password: password,
+    database: 'b7vtuql41mnuu5nzrwwm',
 });
 
 connection.connect(function(err) {
     if (err) {
         console.log('Error al conectar con la base de datos: ' + err);
+        return;
     } else {
         console.log('Conexión establecida con éxito a la base de datos.');
-    }
-});
 
-connection.query('SELECT * FROM usuarios'), (err, results) => {
-    if (err) throw err;
-    console.log(results);
-}     
+        
+
+        connection.query('CREATE DATABASE IF NOT EXISTS b7vtuql41mnuu5nzrwwm', function(err, results) {
+            if (err) {
+                console.log('Error al crear la base de datos: ' + err);
+                return;
+            } else {
+                console.log(results.changedRows + ' Base de datos');
+            }
+        });
+
+        connection.query('CREATE TABLE IF NOT EXISTS USUARIOS (`usuario_ID` int NOT NULL AUTO_INCREMENT UNIQUE,`usuario_USERNAME` varchar(25) NOT NULL UNIQUE,`usuario_EMAIL` varchar(25) NOT NULL UNIQUE,`usuario_PASS` varchar(25) NOT NULL,PRIMARY KEY (`usuario_ID`));', function(err, results) { 
+            if (err) {
+                console.log('Error al crear la tabla usuarios: ' + err);
+                return;
+            } else {
+                console.log(results.changedRows + ' Tabla usuarios');
+            }
+        });
+
+        connection.query('CREATE TABLE IF NOT EXISTS USUARIOS_INFO (`info_NAME` varchar(255) NOT NULL,`info_LASTNAME` varchar(255) NOT NULL,`info_YEARBIRTH`Date NOT NULL,`usuario_ID` int NOT NULL UNIQUE,FOREIGN KEY (usuario_ID) REFERENCES USUARIOS(usuario_ID))', function(err, results) { 
+            if (err) {
+                console.log('Error al crear la tabla usuarios_info: ' + err);
+                return;
+            } else {
+                console.log(results.changedRows + ' Tabla usuarios_info');
+            }
+        });
+
+        connection.query('CREATE TABLE IF NOT EXISTS TASKS (`task_ID` int NOT NULL AUTO_INCREMENT UNIQUE,`task_NAME` varchar(255) NOT NULL,`task_start` date NOT NULL,`task_end` date NOT NULL,`task_color` varchar(8) NOT NULL,`task_progress` int NOT NULL,`task_urgent` TINYINT(1) NOT NULL,`usuario_ID` int NOT NULL,PRIMARY KEY (`task_ID`),FOREIGN KEY (usuario_ID) REFERENCES USUARIOS(usuario_ID));', function(err, results) { 
+            if (err) {
+                console.log('Error al crear la tabla tareas: ' + err);
+                return;
+            } else {
+                console.log(results.changedRows + ' Tabla tasks');
+            }
+        });
+
+        connection.query('CREATE TABLE IF NOT EXISTS CONTACTS (`contact_ID` int NOT NULL AUTO_INCREMENT UNIQUE,`contact_NAME` varchar(255) NOT NULL,`contact_LASTNAME` varchar(255)NOT NULL,`contact_EMAIL` varchar(255) NOT NULL,PRIMARY KEY (`contact_ID`));', function(err, results) { 
+            if (err) {
+                console.log('Error al crear la tabla contactos: ' + err);
+                return;
+            } else {
+                console.log(results.changedRows + ' Tabla contactos');
+            }
+        });
+    }
+
+    // connection.query('INSERT INTO USUARIOS (usuario_USERNAME, usuario_EMAIL, usuario_PASS) value // ("admin", "admin@admin", 12345);', function(err, results) {
+     //    if (err) {
+    //         console.log('Error al consultar la tabla usuarios: ' + err);
+    //     } else {
+    //         console.log('Ingresado correctamente a la tabla usuarios');
+    //     }
+    // });
+
+    // console.log('0 = no creada porque ya existe')
+});
+  
 
 
 

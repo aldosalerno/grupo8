@@ -25,11 +25,11 @@ app.use(express.urlencoded({ extended: false }));
 //Routes
  app.use("/", require('./src/routes/indexRouter'));
 
-// app.use("/contacto", require('./src/routes/contactoRouter'));
+app.use("/contacto", require('./src/routes/contactoRouter'));
 
-// app.use("/nosotros", require('./src/routes/nosotrosRouter'));
+app.use("/nosotros", require('./src/routes/nosotrosRouter'));
 
-// app.use("/tareas", require('./src/routes/tareasRouter'));
+app.use("/tareas", require('./src/routes/tareasRouter'));
 
  app.use("/usuarios", require('./src/routes/usuariosRouter'));
 

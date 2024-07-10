@@ -66,15 +66,7 @@ connection.connect(function(err) {
         });
     }
 
-    // connection.query('INSERT INTO USUARIOS (usuario_USERNAME, usuario_EMAIL, usuario_PASS) value // ("admin", "admin@admin", 12345);', function(err, results) {
-     //    if (err) {
-    //         console.log('Error al consultar la tabla usuarios: ' + err);
-    //     } else {
-    //         console.log('Ingresado correctamente a la tabla usuarios');
-    //     }
-    // });
-
-    // console.log('0 = no creada porque ya existe')
+    console.log('0 = no creada porque ya existe')
 });
   
 

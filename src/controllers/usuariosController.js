@@ -1,21 +1,7 @@
 const db = require('../db/db');
 
 
-const insertUsuario = (req, res) => {
-  const { nombre, email, password } = req.body;
 
-  console.log(nombre, email, password);
-
-
-  const sql = 'INSERT INTO USUARIOS (usuario_USERNAME, usuario_EMAIL, usuario_PASS) VALUES (?, ?, ?)';
-
-
- 
-     db.query(sql, [nombre, email, password], (err, results) => {
-         if (err) throw err;
-        res.redirect('/usuarios/mostrar/' + results.insertId);
-     });
-};
 
 const selectUsuarioIncompleto = (req, res) => {
     const id = req.params.id;
@@ -118,8 +104,7 @@ const usuarios = (req, res) => {
 
 
  module.exports = {
-   usuarios, 
-   insertUsuario,
+   usuarios,
    selectUsuario,
    selectUsuarioIncompleto,
    updateUsuario, 

@@ -1,0 +1,24 @@
+<%- include ("template/head.ejs", {title: "Nosotros" }); %>
+    
+    <body class="body">
+
+        <%- include ("template/header.ejs"); %>
+
+            <%- include ("template/nav.ejs", {active: "login"}); %>
+                <main class="main">
+                    <section class="section-login" >
+                        <form id="loginform" action="/login" method="post">
+                            <legend>Login</legend>
+                            <label>Mail</label>
+                            <input type="email" placeholder="email" id="email" name="email" autofocus required>
+                            <label>Contraseña</label>
+                            <input type="password" placeholder="password" id="password" name="password" autofocus required >
+                            <input type="submit" value="Ingresar">
+                        </form>
+                        <p>No tienes una cuenta? <a href="/signup">Registrarse</a></p>
+                    </section>
+                </main>
+
+                <%- include ("template/footer.ejs"); %>
+               
+    </body>

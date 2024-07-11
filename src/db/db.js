@@ -29,7 +29,7 @@ connection.connect(function(err) {
             }
         });
 
-        connection.query('CREATE TABLE IF NOT EXISTS USUARIOS (`usuario_ID` int NOT NULL AUTO_INCREMENT UNIQUE,`usuario_USERNAME` varchar(25) NOT NULL UNIQUE,`usuario_EMAIL` varchar(25) NOT NULL UNIQUE,`usuario_PASS` varchar(25) NOT NULL,PRIMARY KEY (`usuario_ID`));', function(err, results) { 
+        connection.query('CREATE TABLE IF NOT EXISTS USUARIOS (`usuario_ID` int NOT NULL AUTO_INCREMENT UNIQUE,`usuario_USERNAME` varchar(25) NOT NULL UNIQUE,`usuario_EMAIL` varchar(25) NOT NULL UNIQUE,`usuario_PASS` varchar(60) NOT NULL,PRIMARY KEY (`usuario_ID`));', function(err, results) { 
             if (err) {
                 console.log('Error al crear la tabla usuarios: ' + err);
                 return;
@@ -66,7 +66,7 @@ connection.connect(function(err) {
         });
     }
 
-    console.log('0 = no creada porque ya existe')
+    console.log('0 = no creada porque ya existe/ o se creo correctamente')
 });
   
 

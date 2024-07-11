@@ -1,11 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const controller = require('../controllers/indexController');
+const authController = require('../controllers/authController');
 
 
 
 
-router.get("/", controller.index);
+router.get("/", authController.isAuthenticated, controller.index);
 
 
 

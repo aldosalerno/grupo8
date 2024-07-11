@@ -1,0 +1,26 @@
+<%- include ("template/head.ejs", {title: "Nosotros" }); %>
+
+    <body class="body">
+        <%- include ("template/header.ejs"); %>
+
+            <%- include ("template/nav.ejs", {active: "register"}); %>
+
+                <main class="main">
+                    <section class="section-login">
+                        <form id="signupform" action="/register" method="post">
+                            <legend>Registrarse</legend>
+                            <label>Nombre</label>
+                            <input type="text" placeholder="name" id="name" name="username" required autofocus>
+                            <label>Mail</label>
+                            <input type="email" placeholder="email" id="email" name="email" required >
+                            <label>Contraseña</label>
+                            <input type="password" placeholder="password" id="password" name="password" required >
+                            <input type="submit" value="Registrar">
+                        </form>
+                        <p>Regresar a login <a href="login">Login</a></p>
+                    </section>
+                </main>
+                <%- include ("template/footer.ejs"); %>
+                <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    </body>

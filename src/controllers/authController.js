@@ -55,15 +55,7 @@ exports.login = async (req, res) => {
       db.query('SELECT * FROM USUARIOS WHERE usuario_EMAIL = ?', [email], async (err, results) => {
         if (results.length == 0 || !(await bcryptjs.compare(password, results[0].usuario_PASS))) {
           console.log('Usuario o contraseña incorrectos');
-          res.render('/login', {
-            alert: true,
-            alertTitle: "Error",
-            alertMessage: "Usuario o contraseña incorrectos",
-            alertIcon: 'error',
-            showConfirmButton: true,
-            timer: false,
-            ruta: 'login'
-          });
+          res.render('/login');
         } else {
           const id = results[0].usuario_ID;
           const token = jwt.sign({ id }, process.env.JWT_SECRETO, {
@@ -76,15 +68,7 @@ exports.login = async (req, res) => {
             httpOnly: true,
           }
           res.cookie('jwt', token, cookiesOptions);
-          res.render('login', {
-            alert: true,
-            alertTitle: "Login exitoso",
-            alertMessage: "Usuario Logeado correctamente",
-            alertIcon: 'success',
-            showConfirmButton: false,
-            timer: 800,
-            ruta: ''
-          });
+          res.render('tareas');
         }
       })
     }

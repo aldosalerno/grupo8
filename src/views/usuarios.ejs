@@ -14,12 +14,11 @@
             <p> Apellido: <%= Apellido %> </p>
             <p> Email: <%= Email %> </p>
             <p> Año de nacimiento: <%= Date %> </p>
-            <p> ID: <%= id %> </p>
 
     </div>
 
     <section class="Actualizar-Usuario">
-        <form  action="/usuarios/update/<%= id %>" id="" method="post">
+        <form  action="/usuarios/update/" id="" method="post">
 
 
             <label for="name">Nombre:</label>
@@ -35,33 +34,12 @@
         </form>
 
         <div class="container-login-singup">
-
-          <section class="section-login">
-                  
-                  <form id="loginform" action="/usuarios/login" method="Post">
-                      <legend>Log In</legend>
-                      <label>Mail</label>
-                      <input type="email" name="email" placeholder="Email" id="email_login" required autofocus>
-                      <label>Contraseña</label>
-                      <input type="password" name="password" placeholder="Contraseña" id="password_login" required autofocus>
-                      <input class="login-form-button" type="submit" value="Ingresar" onlick="" id="conectar">
-                  </form>
-              </section>
       
               <section class="section-signup">
                   
-                  <form id="signupform" action='/usuarios/create' method="POST">
-                      <legend>ESTE</legend>
-                      <label>Nombre</label>
-                      <input type="text" name="nombre" placeholder="Guido Fossati" id="name_signup" required autofocus>
-                      <label>Mail</label>
-                      <input type="email" placeholder="Tiddy@gmail.com" name="email" id="email_signup" required>
-                      <label>Contraseña</label>
-                      <input type="password" name="password"  placeholder="QueNoSea123PorFavor" id="password_signup" required>
-                      <input class="login-form-button" type="submit" value="Registrar" onclick="" id="registrar">
-                  </form>
+              
 
-                  <form id="form_eliminar" action="/usuarios/delete/<%= id %>" method="delete">
+                  <form id="form_eliminar" action="/usuarios/delete/" method="delete">
                       <legend>Eliminar</legend>
                       <label>Email</label>
                       <input type="email" name="email" placeholder="Tiddy@gmail.com" id="email_eliminar" required>

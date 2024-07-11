@@ -18,9 +18,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 
-// Ruta AUTHENTIFICATION
-app.use("/auth", require('./src/routes/authRouter'));
-
 //Routes
 app.use("/", require('./src/routes/indexRouter'));
 app.use("/contacto", require('./src/routes/contactoRouter'));

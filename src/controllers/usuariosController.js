@@ -1,17 +1,24 @@
 const db = require('../db/db');
+const jwt = require('jsonwebtoken');
+const { promisify } = require('util');
 
 
 
 
 const selectUsuarioIncompleto = (req, res) => {
-    const id = req.params.id;
+    const token =  req.cookies.jwt;
+    function decodeJWT(token) {
+    return JSON.parse(Buffer.from(token.split('.')[1], 'base64').toString());
+    }
+  
+    const decodificada = decodeJWT(token);
+    console.log(decodificada.id);  
 
-    console.log(id + " incompleto");
+    console.log(decodificada.id + " incompleto");
 
 
     const sql = 'SELECT * FROM USUARIOS where usuario_ID = ?';
-
-    db.query(sql, [id], (err, results) => {
+    db.query(sql, [decodificada.id], (err, results) => {
         if (err) throw err;
         console.log(results);
         res.render("usuarios", {
@@ -19,8 +26,7 @@ const selectUsuarioIncompleto = (req, res) => {
             Email: results[0].usuario_EMAIL, 
             Nombre: "", 
             Apellido: "", 
-            Date: "", 
-            id: results[0].usuario_ID});
+            Date: ""});
      });
 };
 
@@ -36,15 +42,14 @@ const selectUsuario = (req, res) => {
          const boleanogil =  results ?? "" ;
          
             if(boleanogil.length == 0){
-               res.redirect('/usuarios/mostrar/incompleto/' + id);
+               res.redirect('/usuarios/mostrar/incompleto/');
             } else {
                 res.render("usuarios", {
                     Username: results[0].usuario_USERNAME, 
                     Email: results[0].usuario_EMAIL, 
                     Nombre: results[0].info_NAME, 
                     Apellido: results[0].info_LASTNAME, 
-                    Date: results[0].info_YEARBIRTH, 
-                    id: results[0].usuario_ID});
+                    Date: results[0].info_YEARBIRTH });
             }
              
         });
@@ -61,7 +66,7 @@ const updateUsuario = (req, res) => {
   db.query(sql, [nombre, lastname, number, id], (err, results) => {
       if (err) throw err;
       console.log(results);
-      res.redirect('/usuarios/mostrar/' + id);  
+      res.redirect('/usuarios/mostrar/');  
     });
 };
 
@@ -96,8 +101,34 @@ const deleteUsuario = (req, res) => {
  }
 
 const usuarios = (req, res) => {
-    res.render("usuarios", {Username: "", Email: "", Nombre: "", Apellido: "", Date: "", id: ""});
- }
+   
+        const token =  req.cookies.jwt;
+        function decodeJWT(token) {
+        return JSON.parse(Buffer.from(token.split('.')[1], 'base64').toString());
+        }
+  
+        const decodificada = decodeJWT(token);  
+
+        const sql = 'SELECT * FROM USUARIOS JOIN USUARIOS_INFO on USUARIOS.usuario_ID = USUARIOS_INFO.usuario_ID AND USUARIOS.usuario_ID = ?;';
+
+        db.query(sql, [decodificada.id], (err, results) => {
+            if (err) throw err;
+   
+            const boleanogil =  results ?? "" ;
+            
+               if(boleanogil.length == 0){
+                  res.redirect('/usuarios/mostrar/incompleto/');
+               } else {
+                   res.render("usuarios", {
+                       Username: results[0].usuario_USERNAME, 
+                       Email: results[0].usuario_EMAIL, 
+                       Nombre: results[0].info_NAME, 
+                       Apellido: results[0].info_LASTNAME, 
+                       Date: results[0].info_YEARBIRTH});
+               }
+                
+           });
+}
 
 
 

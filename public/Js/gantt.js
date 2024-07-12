@@ -190,3 +190,8 @@ function clearGantt() {
 // Genera el diagrama de Gantt cuando el DOM está completamente cargado
 document.addEventListener('DOMContentLoaded', generateGantt);
 document.addEventListener('DOMContentLoaded', generateGantt.generateGantt);
+
+function vaciarFormulario() {
+    sessionStorage.clear();
+
+}

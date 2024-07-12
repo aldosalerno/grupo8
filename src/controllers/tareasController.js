@@ -73,6 +73,25 @@ const insertTask = (req, res) => {
     });
   }
 
+  const eliminarTarea = (req, res) => {
+
+      const token =  req.cookies.jwt;
+      function decodeJWT(token) {
+      return JSON.parse(Buffer.from(token.split('.')[1], 'base64').toString());
+      }
+  
+      const decodificada = decodeJWT(token);
+  
+      console.log(decodificada.id);
+  
+      const sql = 'DELETE FROM TASKS WHERE usuario_ID = ?';
+      db.query(sql, [decodificada.id], (err, results) => {
+          if (err) res.render("tareas");
+          res.render("tareas");
+      });
+  
+  }
+
   module.exports = {
-    tareas, insertTask, getTask
+    tareas, insertTask, getTask, eliminarTarea
   };

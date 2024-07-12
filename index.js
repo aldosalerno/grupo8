@@ -25,12 +25,6 @@ app.use("/nosotros", require('./src/routes/nosotrosRouter'));
 app.use("/tareas", require('./src/routes/tareasRouter'));
 app.use("/usuarios", require('./src/routes/usuariosRouter'));
 app.use("/login", require('./src/routes/loginRouter'));
-
-app.post("/login", (req, res) => {
-  console.log(req.body);
-  res.json(req.body);
-});
-
 app.use("/register", require('./src/routes/registerRouter'));
 
 // CHACHE

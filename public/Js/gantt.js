@@ -85,13 +85,56 @@ class Gantt {
 
 function loadTasks() { 
     // carga las tareas desde el localStorage usando JSON
-    const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    
+    async function getData(tareas) {
+        const url = "tareas/recuperar";
+        try {
+          const response = await fetch(url);
+          if (!response.ok) {
+            throw new Error(`Response status: ${response.status}`);
+          }
+        
+          const results = await response.json();
+
+          
+          results.forEach((tarea) => {
+
+            const task = {
+              name: tarea.task_NAME,
+              startDate: tarea.task_start,
+              endDate: tarea.task_end,
+              color: tarea.task_color,
+              progress: tarea.task_progress
+          }
+            tareas.push(task);
+
+        });
+
+          return tareas;
+
+        } catch (error) {
+          console.error(error.message);
+        }
+
+
+
+      }
+
+    const tareas = [];
+
+    const tasks = getData(tareas) || [];
+
+    console.log(tasks);
+    
     return tasks;
+
+    
 }
 
 function saveTasks(tasks) {
     // guarda las tareas en el localStorage usando JSON
-    localStorage.setItem('tasks', JSON.stringify(tasks));
+    sessionStorage.setItem('tasks', JSON.stringify(tasks));
+    
 }
 
 function addTask() {
@@ -114,6 +157,19 @@ function addTask() {
             progress: progress
         };
         // Agrega la tarea a la lista de tareas y la guarda
+        
+        const sendTask = json.stringify(task);
+
+        fetch("/tareas", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: sendTask 
+           
+        });
+
+
         tasks.push(task);
         saveTasks(tasks);
 
@@ -148,6 +204,11 @@ function clearGantt() {
     const gantt = new Gantt([]);
     gantt.clear();
 }
+
+function clearStorage () {
+    sessionStorage.removeItem('tasks');
+}
+
 
 // Genera el diagrama de Gantt cuando el DOM está completamente cargado
 document.addEventListener('DOMContentLoaded', generateGantt);

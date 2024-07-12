@@ -27,6 +27,9 @@ app.use("/usuarios", require('./src/routes/usuariosRouter'));
 app.use("/login", require('./src/routes/loginRouter'));
 app.use("/register", require('./src/routes/registerRouter'));
 
+// LogOut
+app.use("/logout", require('./src/controllers/authController').logout);
+
 // CHACHE
 app.use(function(req, res, next) {
   if(!req.usuario){

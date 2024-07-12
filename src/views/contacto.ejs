@@ -9,7 +9,7 @@
 
   <main class="main">
     <section class="contacto-section-container">
-        <form action="URL" method="get" target="_blank" onsubmit="return validarFormulario()">
+        <form action="/contacto" method="post"">
 
             <label for="name">Nombre:</label>
             <input type="text" name="name" id="name" size="30" maxlength="50" required>
@@ -21,18 +21,13 @@
             <label for="mail">Correo Electrónico: </label>
             <input type="email" name="mail" id="mail" size="30" maxlength="60" required>
 
-            <!-- File Input -->
-            <label for="archivo">Adjuntar Archivo:</label>
-            <input type="file" id="archivo" name="archivo">
-
-
             <div>
                 <label for="comentarios">Comentarios:</label>
-                <textarea name="comentarios" id="comentarios" cols="50" rows="10"></textarea>
+                <textarea name="comentarios" id="comentarios" maxlength="255" cols="50" rows="10"></textarea>
             </div>
 
             
-            <button type="submit">Enviar</button>
+            <input type="submit" value="Enviar">
              
         </form>
 
@@ -55,7 +50,5 @@
 
 
   <%- include ("template/footer.ejs"); %>
-
-  <script src="/Js/index.js" defer></script>
   
 </body>

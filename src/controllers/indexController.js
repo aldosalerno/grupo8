@@ -1,5 +1,3 @@
-const db = require('../db/db');
-
 
 
 const index = (req, res) => {

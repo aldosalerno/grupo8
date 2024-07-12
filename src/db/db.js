@@ -38,7 +38,7 @@ connection.connect(function(err) {
             }
         });
 
-        connection.query('CREATE TABLE IF NOT EXISTS USUARIOS_INFO (`info_NAME` varchar(255) NOT NULL,`info_LASTNAME` varchar(255) NOT NULL,`info_YEARBIRTH`Date NOT NULL,`usuario_ID` int NOT NULL UNIQUE,FOREIGN KEY (usuario_ID) REFERENCES USUARIOS(usuario_ID))', function(err, results) { 
+        connection.query('CREATE TABLE IF NOT EXISTS USUARIOS_INFO (`info_NAME` varchar(255) NOT NULL,`info_LASTNAME` varchar(255) NOT NULL,`info_YEARBIRTH`INT NOT NULL,`usuario_ID` int NOT NULL UNIQUE,FOREIGN KEY (usuario_ID) REFERENCES USUARIOS(usuario_ID))', function(err, results) { 
             if (err) {
                 console.log('Error al crear la tabla usuarios_info: ' + err);
                 return;
@@ -56,7 +56,7 @@ connection.connect(function(err) {
             }
         });
 
-        connection.query('CREATE TABLE IF NOT EXISTS CONTACTS (`contact_ID` int NOT NULL AUTO_INCREMENT UNIQUE,`contact_NAME` varchar(255) NOT NULL,`contact_LASTNAME` varchar(255)NOT NULL,`contact_EMAIL` varchar(255) NOT NULL,PRIMARY KEY (`contact_ID`));', function(err, results) { 
+        connection.query('CREATE TABLE IF NOT EXISTS CONTACTS (`contact_ID` int NOT NULL AUTO_INCREMENT UNIQUE,`contact_NAME` varchar(255) NOT NULL,`contact_LASTNAME` varchar(255)NOT NULL,`contact_EMAIL` varchar(255) NOT NULL, `contact_COMMENTS` varchar(255) NOT NULL,PRIMARY KEY (`contact_ID`));', function(err, results) { 
             if (err) {
                 console.log('Error al crear la tabla contactos: ' + err);
                 return;

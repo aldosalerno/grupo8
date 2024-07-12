@@ -84,57 +84,37 @@ class Gantt {
 }
 
 function loadTasks() { 
-    // carga las tareas desde el localStorage usando JSON
-    
-    async function getData(tareas) {
-        const url = "tareas/recuperar";
-        try {
-          const response = await fetch(url);
-          if (!response.ok) {
-            throw new Error(`Response status: ${response.status}`);
-          }
-        
-          const results = await response.json();
+   
+    // Carga a la sessionstorage las tareas recibidas desde el servidor
+    async function getData() {
+        fetch("/tareas/recuperar")
+        .then(response => response.json())
+        .then(data =>  {
+            const tasks =  data.map(task => {
+                return {
+                    name: task.task_NAME,
+                    startDate: new Date(task.task_start).toLocaleDateString(),
+                    endDate: new Date(task.task_end).toLocaleDateString(),
+                    color: task.task_color,
+                    progress: task.task_progress
+                } 
+                
+            });
 
-          
-          results.forEach((tarea) => {
-
-            const task = {
-              name: tarea.task_NAME,
-              startDate: tarea.task_start,
-              endDate: tarea.task_end,
-              color: tarea.task_color,
-              progress: tarea.task_progress
-          }
-            tareas.push(task);
-
-        });
-
-          return tareas;
-
-        } catch (error) {
-          console.error(error.message);
-        }
+            sessionStorage.setItem('tasks', JSON.stringify(tasks)) || [];
+            return tasks;
+        })
+}       
 
 
-
-      }
-
-    const tareas = [];
-
-    const tasks = getData(tareas) || [];
-
-    console.log(tasks);
-    
+    getData();
+    const tasks = JSON.parse(sessionStorage.getItem('tasks')) || [];
     return tasks;
-
-    
 }
 
 function saveTasks(tasks) {
-    // guarda las tareas en el localStorage usando JSON
+    // guarda las tareas en el sessionstorage usando JSON
     sessionStorage.setItem('tasks', JSON.stringify(tasks));
-    
 }
 
 function addTask() {
@@ -156,9 +136,9 @@ function addTask() {
             color: color,
             progress: progress
         };
-        // Agrega la tarea a la lista de tareas y la guarda
-        
-        const sendTask = json.stringify(task);
+
+        // Manda la tarea al servidor
+        const sendTask = JSON.stringify(task);
 
         fetch("/tareas", {
             method: "POST",
@@ -168,8 +148,8 @@ function addTask() {
             body: sendTask 
            
         });
-
-
+        
+        // Agrega la tarea a la lista de tareas y la guarda
         tasks.push(task);
         saveTasks(tasks);
 
@@ -196,7 +176,9 @@ function generateGantt() {
     if (tasks.length > 0) {
         const ganttTasks = tasks.map(task => [task.name, task.startDate, task.endDate, task.color, task.progress]);
         new Gantt(ganttTasks);
-    }      
+    } else {
+        alert('Agregue al menos una tarea.');
+    }
 }
 
 
@@ -205,10 +187,6 @@ function clearGantt() {
     gantt.clear();
 }
 
-function clearStorage () {
-    sessionStorage.removeItem('tasks');
-}
-
-
 // Genera el diagrama de Gantt cuando el DOM está completamente cargado
 document.addEventListener('DOMContentLoaded', generateGantt);
+document.addEventListener('DOMContentLoaded', generateGantt.generateGantt);

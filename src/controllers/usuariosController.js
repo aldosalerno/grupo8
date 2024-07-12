@@ -11,17 +11,32 @@ const updateUsuario = (req, res) => {
     const decodificada = decodeJWT(token);
 
   
-  const { nombre, lastname, number } = req.body;
-  
-  console.log(decodificada.id, nombre, lastname, number);
+    const { nombre, lastname, number } = req.body;
+    console.log(decodificada.id, nombre, lastname, number);
 
-  const sql = 'UPDATE USUARIOS_INFO SET info_NAME = ?, info_LASTNAME = ?, info_YEARBIRTH = ? WHERE usuario_ID = ?';
+    const sql = 'SELECT * FROM USUARIOS_INFO WHERE usuario_ID = ?';
 
-  db.query(sql, [nombre, lastname, number, decodificada.id], (err, results) => {
-      if (err) throw err;
-      console.log(results);
-      res.redirect('/usuarios/mostrar/');  
-    });
+    db.query(sql, [decodificada.id], (err, results) => {
+        if (err) throw err;
+        if(results.length == 0){
+            const sql2 = 'INSERT INTO USUARIOS_INFO (usuario_ID, info_NAME, info_LASTNAME, info_YEARBIRTH) VALUES (?, ?, ?, ?)';
+            db.query(sql2, [decodificada.id, nombre, lastname, number], (err, results) => {
+                if (err) throw err;
+                console.log(results);
+                res.redirect('/usuarios');  
+            });
+        } else {
+            const sql3 = 'UPDATE USUARIOS_INFO SET info_NAME = ?, info_LASTNAME = ?, info_YEARBIRTH = ? WHERE usuario_ID = ?';
+
+            db.query(sql3, [nombre, lastname, number, decodificada.id], (err, results) => {
+                if (err) throw err;
+                console.log(results);
+                res.redirect('/usuarios');  
+                });
+        }
+      });
+
+    
 };
 
 const deleteUsuario = (req, res) => {
@@ -33,33 +48,17 @@ const deleteUsuario = (req, res) => {
 
     const decodificada = decodeJWT(token);
 
-
-    console.log(decodificada.id);
-
     const sql = 'DELETE FROM USUARIOS WHERE usuario_ID = ?';
     db.query(sql, [decodificada.id], (err, results) => {
         if (err) throw err;
-        res.json({ message: 'Usuario eliminado' });
-    });
-};
-
- const usuarioLogin = (req, res) => {
-  const {email, password } = req.body;
-
-  console.log(email, password);
-
-
-  const sql = 'select * from usuarios where usuario_EMAIL = ? and usuario_PASS = ?';
-
-
- 
-     db.query(sql, [email, password], (err, results) => {
-         if (err) throw err;
-        res.json({ message: 'Usuario Logueado' });
-     });
-  
-    
- }
+        db.query('DELETE FROM USUARIOS_INFO WHERE usuario_ID = ?', [decodificada.id], (err, results) => {
+            if (err) throw err;
+            db.query('DELETE FROM TASKS WHERE usuario_ID = ?', [decodificada.id], (err, results) => {
+                if (err) throw err;
+                res.redirect('/register');});
+            });
+        }); 
+    }
 
 const selectUsuarios = (req, res) => {
    
@@ -75,16 +74,15 @@ const selectUsuarios = (req, res) => {
         db.query(sql, [decodificada.id], (err, results) => {
             if (err) throw err;
    
-            const boleanogil =  results ?? "" ;
+                const boleanogil =  results ?? "" ;
 
-                
                if(boleanogil.length == 0){
 
                 const sql2 = 'SELECT * FROM USUARIOS where usuario_ID = ?';
 
                 db.query(sql2, [decodificada.id], (err, results) => {
                     if (err) throw err;
-                    console.log(results);
+
                     res.render("usuarios", {
                         Username: results[0].usuario_USERNAME, 
                         Email: results[0].usuario_EMAIL, 
@@ -112,5 +110,4 @@ const selectUsuarios = (req, res) => {
    selectUsuarios,
    updateUsuario, 
    deleteUsuario, 
-   usuarioLogin, 
   };

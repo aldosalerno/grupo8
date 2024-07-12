@@ -12,7 +12,7 @@ PRIMARY KEY (`usuario_ID`)
 CREATE TABLE IF NOT EXISTS USUARIOS_INFO (
 `info_NAME` varchar(255) NOT NULL,
 `info_LASTNAME` varchar(255) NOT NULL,
-`info_YEARBIRTH`Date NOT NULL,
+`info_YEARBIRTH` NUMBER NOT NULL,
 `usuario_ID` int NOT NULL UNIQUE,
 FOREIGN KEY (usuario_ID) REFERENCES USUARIOs(usuario_ID)
 );
@@ -36,5 +36,6 @@ CREATE TABLE IF NOT EXISTS CONTACTS (
     `contact_NAME` varchar(255) NOT NULL,
     `contact_LASTNAME` varchar(255) NOT NULL,
     `contact_EMAIL` varchar(255) NOT NULL,
+    `contact_comments` varchar(255) NOT NULL,
     PRIMARY KEY (`contact_ID`)
 );

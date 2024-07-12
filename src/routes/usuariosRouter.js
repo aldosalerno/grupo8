@@ -5,8 +5,8 @@ const controller = require('../controllers/usuariosController');
 
 
 router.get("/", authController.isAuthenticated, controller.selectUsuarios); 
-router.post(`/update/:id`, controller.updateUsuario);
-router.delete(`/delete/:id`, controller.deleteUsuario);
+router.post(`/update`,  controller.updateUsuario);
+router.delete(`/delete`, authController.isAuthenticated, controller.deleteUsuario);
 
 
 

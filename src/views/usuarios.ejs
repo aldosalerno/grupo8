@@ -18,7 +18,7 @@
     </div>
 
     <section class="Actualizar-Usuario">
-        <form  action="/usuarios/update/" id="" method="post">
+        <form  action="/usuarios/update/" id="form_update" method="post">
 
 
             <label for="name">Nombre:</label>
@@ -39,13 +39,9 @@
                   
               
 
-                  <form id="form_eliminar" action="/usuarios/delete/" method="delete">
-                      <legend>Eliminar</legend>
-                      <label>Email</label>
-                      <input type="email" name="email" placeholder="Tiddy@gmail.com" id="email_eliminar" required>
-                      <label>Contraseña</label>
-                      <input type="password" name="password"  placeholder="QueNoSea123PorFavor" id="password_eliminar" required>
-                      <input class="login-form-button" type="submit" value="Eliminar" onclick="" id="eliminar">
+                  <form id="form_eliminar" action="/usuarios" method="delete">
+                      <legend>ELIMINAR CUENTA</legend>                  
+                      <input class="login-form-button" type="submit" value="ELIMINAR" onclick="" id="eliminar">
 
                   </form>
       
@@ -55,8 +51,6 @@
     </section>       
 </main>
 
-
-    <script src="/Js/index.js"></script>
   <%- include ("template/footer.ejs"); %>
 
   

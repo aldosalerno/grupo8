@@ -48,12 +48,12 @@ const deleteUsuario = (req, res) => {
 
     const decodificada = decodeJWT(token);
 
-    const sql = 'DELETE FROM USUARIOS WHERE usuario_ID = ?';
+    const sql = 'DELETE FROM TASKS WHERE usuario_ID = ?';
     db.query(sql, [decodificada.id], (err, results) => {
         if (err) throw err;
         db.query('DELETE FROM USUARIOS_INFO WHERE usuario_ID = ?', [decodificada.id], (err, results) => {
-            if (err) throw err;
-            db.query('DELETE FROM TASKS WHERE usuario_ID = ?', [decodificada.id], (err, results) => {
+            if (err) res.redirect('/register');
+            db.query('DELETE FROM USUARIOS WHERE usuario_ID = ?', [decodificada.id], (err, results) => {
                 if (err) throw err;
                 res.redirect('/register');});
             });

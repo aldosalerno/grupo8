@@ -6,7 +6,7 @@ const controller = require('../controllers/tareasController');
 router.get("/", auth.isAuthenticated, controller.tareas);
 router.post("/", auth.isAuthenticated, controller.insertTask);
 router.get("/recuperar", auth.isAuthenticated, controller.getTask);
-router.delete("/delete", auth.isAuthenticated, controller.eliminarTarea);
+router.post("/eliminar", auth.isAuthenticated, controller.eliminarTarea);
 
 
 module.exports = router;

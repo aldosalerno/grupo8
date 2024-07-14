@@ -57,9 +57,8 @@ exports.login = async (req, res) => {
     const { email, password } = req.body;
 
     if (!email || !password) {
-      console.log('Completar todos los campos');
       res.render('login', {
-        error: ""
+        error: "Poner email y contraseña"
       });
     } else {
       db.query('SELECT * FROM USUARIOS WHERE usuario_EMAIL = ?', [email], async (err, results) => {

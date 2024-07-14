@@ -51,10 +51,13 @@ const deleteUsuario = (req, res) => {
     const sql = 'DELETE FROM TASKS WHERE usuario_ID = ?';
     db.query(sql, [decodificada.id], (err, results) => {
         if (err) throw err;
+        console.log("Usuario borrado");
         db.query('DELETE FROM USUARIOS_INFO WHERE usuario_ID = ?', [decodificada.id], (err, results) => {
             if (err) res.redirect('/register');
+            console.log("Informacion del usuario borrado");
             db.query('DELETE FROM USUARIOS WHERE usuario_ID = ?', [decodificada.id], (err, results) => {
                 if (err) throw err;
+                console.log("Usuario borrado");
                 res.redirect('/register');});
             });
         }); 

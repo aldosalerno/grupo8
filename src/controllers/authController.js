@@ -9,24 +9,40 @@ const { promisify } = require('util');
 
 exports.register = async (req, res) => {
 
-  console.log(req.body);
   const sql = 'INSERT INTO USUARIOS (usuario_USERNAME, usuario_EMAIL, usuario_PASS) VALUES (?, ?, ?)';
 
   try {
     const { username, email, password } = req.body;
 
     let passwordHash = await bcryptjs.hash(password, 10);
-    console.log(passwordHash.length);
-    db.query( sql, [username, email, passwordHash], (err, results) => {
-      if (err) { console.log(err); }
-      res.redirect('/');
+
+
+    db.query('SELECT * FROM USUARIOS WHERE usuario_USERNAME = ?', [username], (err, results) => {
+      if (err) return res.render('register', { error: "Algo salio mal 1 :("});
+
+
+      if(results.length != 0) { return res.render('register', { error: "El nombre de usuario ya esta en uso :("});}
+      else {
+
+        db.query('SELECT * FROM USUARIOS WHERE usuario_EMAIL = ?', [email], (err, results) => {
+        if (err) return res.render('register', { error: "Algo salio mal 2 :("});
+
+        if(results.length != 0) { return res.render('register', { error: "El email ya esta en uso :("})}
+        else {
+          db.query( sql, [username, email, passwordHash], (err, results) => {
+                if (err) return res.render('register', { error: "Algo salio mal 3 :("});
+                console.log("Pase el password")
+                return res.redirect('/login')});
+        } 
+        });
+      }
     });
+    
   } catch (err) {
     console.log(err);
-
+    res.render('register', { error: "Algo salio mal :("});
 
   }
-
 
 
 };
@@ -42,20 +58,17 @@ exports.login = async (req, res) => {
 
     if (!email || !password) {
       console.log('Completar todos los campos');
-      res.render('/login', {
-        alert: true,
-        alertTitle: "Advertencia",
-        alertMessage: "Ingrese un usuario y contraseña",
-        alertIcon: 'info',
-        showConfirmButton: true,
-        timer: false,
-        ruta: 'login'
+      res.render('login', {
+        error: ""
       });
     } else {
       db.query('SELECT * FROM USUARIOS WHERE usuario_EMAIL = ?', [email], async (err, results) => {
         if (results.length == 0 || !(await bcryptjs.compare(password, results[0].usuario_PASS))) {
           console.log('Usuario o contraseña incorrectos');
-          res.render('/login');
+
+          res.render('login', {
+            error: "Usuario o contraseña incorrectos"
+          });
         } else {
           const id = results[0].usuario_ID;
           const token = jwt.sign({ id }, process.env.JWT_SECRETO, {
@@ -68,7 +81,7 @@ exports.login = async (req, res) => {
             httpOnly: true,
           }
           res.cookie('jwt', token, cookiesOptions);
-          res.render('tareas');
+          res.redirect('/tareas');
         }
       })
     }

@@ -150,9 +150,10 @@ nav {
 
 .section-login {
     display: flex;
+    flex-direction: column;
     background-color: var(--color-primary);
     width: 450px;
-    height: 300px;
+    height: 400px;
     padding: 30px;
     margin: 30px;
 
@@ -218,7 +219,28 @@ nav {
             border-width: 2px;
             border-color: #FFFFFF;
         }
+
+        p {
+            font-weight: 600;
+            color: var(--color-cuarter);
+            justify-content: center;
+
+            a {
+                text-decoration: none;
+                color: var(--color-tertiary);
+                font-weight: 700;
+            }
+
+        }
     }
+
+    .error {
+       color: red;
+       margin-left: 25px;
+    }
+
+    
+    
 
 }
 

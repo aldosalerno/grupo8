@@ -87,7 +87,8 @@ const insertTask = (req, res) => {
       const sql = 'DELETE FROM TASKS WHERE usuario_ID = ?';
       db.query(sql, [decodificada.id], (err, results) => {
           if (err) res.render("tareas");
-          res.render("tareas");
+          console.log("tareas eliminadas")
+          res.redirect("/tareas");
       });
   
   }

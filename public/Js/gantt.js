@@ -101,6 +101,9 @@ function loadTasks() {
                 
             });
 
+            console.log(tasks)
+            console.log("Tareas recuperadas")
+
             sessionStorage.setItem('tasks', JSON.stringify(tasks)) || [];
             return tasks;
         })
@@ -192,6 +195,7 @@ document.addEventListener('DOMContentLoaded', generateGantt);
 document.addEventListener('DOMContentLoaded', generateGantt.generateGantt);
 
 function vaciarFormulario() {
-    sessionStorage.clear();
+    sessionStorage.removeItem('tasks');
+    console.log("Tareas eliminadas")
 
 }

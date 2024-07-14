@@ -1,7 +1,7 @@
 
 
 const index = (req, res) => {
-    res.render('index', {usuario: req.usuario});
+    res.render('index');
   };
 
 module.exports = {

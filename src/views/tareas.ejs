@@ -39,11 +39,11 @@
                 <button onclick="addTask()">Confirmar tarea</button>
             </div>
             <div id="gantt" class="gantt-container"></div>
-        </div>
-        <form action="/tareas/eliminar" method="post">
-            <input type="button" value="Eliminar tarea">
-        </form>
+        </div>    
     </div>
+    <form action="/tareas/eliminar" method="post">
+        <input type="submit" value="Eliminar tarea" onclick="vaciarFormulario()">
+    </form>
     </main>
 
   <%- include ("template/footer.ejs"); %>

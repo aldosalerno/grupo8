@@ -87,19 +87,19 @@ const selectUsuarios = (req, res) => {
                     if (err) throw err;
 
                     res.render("usuarios", {
-                        Username: results[0].usuario_USERNAME, 
-                        Email: results[0].usuario_EMAIL, 
-                        Nombre: "", 
-                        Apellido: "", 
-                        Date: ""});
+                        username: results[0].usuario_USERNAME, 
+                        email: results[0].usuario_EMAIL, 
+                        nombre: "", 
+                        apellido: "", 
+                        date: ""});
                  });
                } else {
                    res.render("usuarios", {
-                       Username: results[0].usuario_USERNAME, 
-                       Email: results[0].usuario_EMAIL, 
-                       Nombre: results[0].info_NAME, 
-                       Apellido: results[0].info_LASTNAME, 
-                       Date: results[0].info_YEARBIRTH});
+                       username: results[0].usuario_USERNAME, 
+                       email: results[0].usuario_EMAIL, 
+                       nombre: results[0].info_NAME, 
+                       apellido: results[0].info_LASTNAME, 
+                       date: results[0].info_YEARBIRTH});
                }
                 
            });

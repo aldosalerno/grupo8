@@ -71,7 +71,9 @@ exports.login = async (req, res) => {
           });
         } else {
           const id = results[0].usuario_ID;
-          const token = jwt.sign({ id }, process.env.JWT_SECRETO, {
+          const username = results[0].usuario_USERNAME;
+          const email = results[0].usuario_EMAIL;
+          const token = jwt.sign({ id, username, email  }, process.env.JWT_SECRETO, {
             expiresIn: process.env.JWT_TIEMPO_EXPIRA
           });
           console.log("Token generado: ", token);

@@ -9,6 +9,7 @@ const tareas = (req, res) => {
   }
 
   const decodificada = decodeJWT(token);
+  const usernameJWT = decodificada.username;
 
   const sql = 'SELECT * FROM USUARIOS where usuario_ID = ?';
 
@@ -22,7 +23,7 @@ const tareas = (req, res) => {
 
       
       
-      res.render("tareas");
+      res.render("tareas", {username: usernameJWT});
       
     });
   });

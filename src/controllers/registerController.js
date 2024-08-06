@@ -1,5 +1,5 @@
 const register = (req, res) => {
-    res.render('register', {error: ""});
+    res.render('register', {error: "", username: " "});
   };
 
   module.exports = {

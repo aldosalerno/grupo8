@@ -4,16 +4,16 @@
 
   <%- include ("template/header.ejs"); %>
 
-  <%- include ("template/nav.ejs", {active: "usuarios"}); %>
+  <%- include ("template/nav.ejs", {active: "usuarios", navUser:"display", user: " "}); %>
 
   <main class="main">
 
     <div class="usuario Information">
-            <p> Nombre de Usuario: <%= Username %> </p>
-            <p> Nombre: <%= Nombre %> </p>
-            <p> Apellido: <%= Apellido %> </p>
-            <p> Email: <%= Email %> </p>
-            <p> Año de nacimiento: <%= Date %> </p>
+            <p> Nombre de Usuario: <%= username %> </p>
+            <p> Nombre: <%= nombre %> </p>
+            <p> Apellido: <%= apellido %> </p>
+            <p> Email: <%= email %> </p>
+            <p> Año de nacimiento: <%= date %> </p>
 
     </div>
 

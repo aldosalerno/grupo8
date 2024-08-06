@@ -7,10 +7,11 @@
 /* Variables */
 
 :root {
-    --color-primary: #003C43;
-    --color-secundary: #135D66;
-    --color-tertiary: #77B0AA;
-    --color-cuarter: #E3FEF7;
+      --color-primary: #040D12 ;
+    --color-secundary: #183D3D;
+    --color-tertiary: #5C8374;
+    --color-cuarter: #93B1A6; 
+    /* Colores usados: pri #003C43, sec #135D66, ter #77B0AA, cua #E3FEF7*/
 }
 
 *{
@@ -25,7 +26,7 @@ html {
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: var(--color-secundary);
+    background-color: var(--color-primary);
     min-height: 100%;
     display: grid;
     gap: 50px;
@@ -72,7 +73,7 @@ nav {
     margin: 5px;
     padding: 10px;
     overflow: hidden;
-    background-color: var(--color-primary);
+    background-color: var(--color-secundary);
 
     li {
         float: left;
@@ -88,7 +89,7 @@ nav {
         }
 
     li a:hover {
-            background-color: var(--color-secundary);
+            background-color: var(--color-tertiary);
             
         }
 
@@ -130,16 +131,16 @@ nav {
 
 
 
-/* ---------------------MAIN--------------------- */
+/* --------------------- MAIN --------------------- */
 
 .main {
     grid-area: main;
     padding: 5px;
     background-color: var(--color-tertiary);
-    background: linear-gradient(90deg, rgba(119,176,170,1) 0%, rgba(0,60,67,1) 100%);
+    background: linear-gradient(120deg, rgb(7, 12, 11) 0%, rgb(0, 18, 20) 100%);
 }
 
-/* Index */
+/* ------------- Login / Register ------------------- */
 
 .container-login-singup {
     display: flex;
@@ -244,8 +245,6 @@ nav {
 
 }
 
-
-
 .section-signup {
     display: flex;
     background-color: var(--color-primary);
@@ -318,6 +317,11 @@ nav {
 
 }
 
+/* END LOGIN / REGISTER */
+
+/*------------------ INDEX ---------------------*/
+
+
 .image-main {
     display: flex;
     justify-content: center;
@@ -340,41 +344,6 @@ nav {
 .image-main:hover {
     -webkit-animation: 2s chicle 1;
     animation: 2s chicle 1;
-}
-
-@-webkit-keyframes chicle {
-    30%{
-        -webkit-transform:
-                scaleX(1.25) scaleY(0.75);
-    }
-
-    50%{
-        -webkit-transform:
-                scaleX(0.75) scaleY(1.25);
-    }
-
-    60%{
-        -webkit-transform:
-                scaleX(1.15) scaleY(0.85);
-    }
-   
-}
-
-@keyframes chicle {
-    30%{
-        transform:
-                scaleX(1.25) scaleY(0.75);
-    }
-
-    50%{
-        transform:
-                scaleX(0.75) scaleY(1.25);
-    }
-
-    60%{
-        transform:
-                scaleX(1.15) scaleY(0.85);
-    }
 }
 
 .image-main-container {
@@ -402,28 +371,6 @@ nav {
     -webkit-animation: 1.7s click 1;
     animation:1.7s click 1;
 }
-
-
-@-webkit-keyframes click {
-    35%,75%{
-        -webkit-transform:scale(0.8);            
-    }
-
-    50%{
-        -webkit-transfor: scale(1.1);
-    }
-}
-
-@keyframes click {
-    35%,75%{
-        transform:scale(0.8);            
-    }
-
-    50%{
-        transform:scale(1.1);
-    }
-}
-
 
 .description-main-container {
     display: flex;
@@ -454,17 +401,17 @@ nav {
     max-width: 1200px;
     margin: 0 auto; 
 
-    h2 {
+    h1 {
         margin-left: 20px;
         font-size: 30px;
-        color: var(--color-primary);
+        color: var(--color-cuarter);
         margin-bottom: 30px;
     }
 
     p {
         margin-left: 60px;
         font-size: 20px;
-        color: var(--color-primary);
+        color: var(--color-tertiary);
         margin-bottom: 30px;
     }
 
@@ -479,19 +426,19 @@ nav {
     h2 {
         margin-left: 20px;
         font-size: 30px;
-        color: var(--color-primary);
+        color: var(--color-cuarter);
         margin-bottom: 30px;
     }
 
     h4 {
         margin-left: 30px;
         font-size: 20px;
-        color: var(--color-primary);
+        color: var(--color-secundary);
         margin-bottom: 30px;
 
     }
     ul {
-        background-color: var(--color-secundary);
+        background-color: var(--color-primary);
         padding-top:20px;
         padding: 10px;
         box-shadow: 10px 10px 10px 0px rgba(0,0,0,0.2);
@@ -512,7 +459,7 @@ nav {
     }
 }
 
-/* Contacto */
+/* ---------------- Contacto ------------------ */
 
 .contacto-section-container{
     padding-top: 60px;
@@ -624,7 +571,7 @@ nav {
 }
 
 
-/* GANTT*/
+/* --------------- GANTT ---------------------- */
 
 .tareas-main-container {
     margin: 30px auto;
@@ -655,8 +602,6 @@ nav {
 .gantt-container {
     grid-area: gantt-container;
 }
-
-
 
 .form-container {
     display: flex;
@@ -760,7 +705,7 @@ th {
 
 /* END GANTT
 
-/* Nosotros  */
+/* ------------------ Nosotros -------------------  */
 
 
 .nosotros-integrante-container {
@@ -830,9 +775,7 @@ th {
 
 
 
-
-
-/*---------------------FOOTER---------------------*/
+/*--------------------- FOOTER ---------------------*/
 
 
 
@@ -914,7 +857,7 @@ th {
 /* END FOOTER */
 
 
-/* ---------------------MEDIA QUERIES--------------------- */
+/* --------------------- MEDIA QUERYS --------------------- */
 
 
 
@@ -1037,7 +980,59 @@ th {
 }
 
 
+/*  ----------- ANIMACIONES IMAGENES INDEX ----------------- */
 
+@-webkit-keyframes chicle {
+    30%{
+        -webkit-transform:
+                scaleX(1.25) scaleY(0.75);
+    }
 
+    50%{
+        -webkit-transform:
+                scaleX(0.75) scaleY(1.25);
+    }
 
+    60%{
+        -webkit-transform:
+                scaleX(1.15) scaleY(0.85);
+    }
+   
+}
 
+@keyframes chicle {
+    30%{
+        transform:
+                scaleX(1.25) scaleY(0.75);
+    }
+
+    50%{
+        transform:
+                scaleX(0.75) scaleY(1.25);
+    }
+
+    60%{
+        transform:
+                scaleX(1.15) scaleY(0.85);
+    }
+}
+
+@-webkit-keyframes click {
+    35%,75%{
+        -webkit-transform:scale(0.8);            
+    }
+
+    50%{
+        -webkit-transfor: scale(1.1);
+    }
+}
+
+@keyframes click {
+    35%,75%{
+        transform:scale(0.8);            
+    }
+
+    50%{
+        transform:scale(1.1);
+    }
+}

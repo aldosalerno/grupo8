@@ -7,11 +7,11 @@
         <li><a <%if(active=="nosotros"){%>class="active"<%}%> href="/nosotros"><i class="fas fa-users"></i></a></li>
         <li><a <%if(active=="contacto"){%>class="active"<%}%> href="/contacto"><i class="fas fa-envelope"></i></a></li>
            
-        <%if(active!=="login" && active !=="register" && username!==" "){%><li><a href="/logout" type="button"">Logout</a></li><%}%>
-        <%if(active=="login"){%><li><a href="/register" type="button"">Registrarse</a></li><%}%>
-        <%if( (active=="register" || active=="nosotros" || active=="contacto") && username== " " ){%><li><a href="/login" type="button"">Log In</a></li><%}%>
+        <%if(active!=="login" && active !=="register" && username!==" "){%><li class="right"><a href="/logout" type="button"">Logout</a></li><%}%>
+        <%if(active=="login"){%><li class="right"><a href="/register" type="button"">Registrarse</a></li><%}%>
+        <%if( (active=="register" || active=="nosotros" || active=="contacto") && username== " " ){%><li class="right"><a href="/login" type="button"">Log In</a></li><%}%>
 
-        <%if(navUser=="display"){%><li><a href="/usuarios" type="button""><%- username %></a></li><%}%>
+        <%if(navUser=="display"){%><li class="right"><a href="/usuarios" type="button""><%- username %></a></li><%}%>
         <!---->
     </ul>
     

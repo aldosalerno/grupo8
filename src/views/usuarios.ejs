@@ -6,44 +6,38 @@
 
   <%- include ("template/nav.ejs", {active: "usuarios", navUser:"display", user: " "}); %>
 
-  <main class="main">
+  <main class="main user">
 
-    <div class="usuario Information">
-            <p> Nombre de Usuario: <%= username %> </p>
-            <p> Nombre: <%= nombre %> </p>
-            <p> Apellido: <%= apellido %> </p>
-            <p> Email: <%= email %> </p>
-            <p> Año de nacimiento: <%= date %> </p>
-
+    <div class="userInformation">
+            <p> Nombre de Usuario: <b><%= username %></b>  </p>
+            <p> Nombre: <b><%= nombre %></b> </p>
+            <p> Apellido: <b><%= apellido %></b> </p>
+            <p> Email: <b><%= email %></b>  </p>
+            <p> Año de nacimiento: <b><%= date %></b> </p>
     </div>
 
-    <section class="Actualizar-Usuario">
-        <form  action="/usuarios/update/" id="form_update" method="post">
+    <form class="updateUser"  action="/usuarios/update/" id="form_update" method="post">
 
+    <legend>Actualizar Informacion</legend>
+		<label for="name">Nombre:</label>
+		<input type="text" name="nombre" id="name_update" required>
+		<label for="lastname">Apellido:</label>
+		<input type="text" name="lastname" id="lastname_update"  required>
+		<label for="number"> Año de nacimiento: </label>
+		<input type="number" name="number" id="number_update" required>
 
-            <label for="name">Nombre:</label>
-            <input type="text" name="nombre" id="name_update" required>
-            <label for="lastname">Apellido:</label>
-            <input type="text" name="lastname" id="lastname_update"  required>
-            <label for="number"> Año de nacimiento: </label>
-            <input type="number" name="number" id="number_update" required>
-
-
-            <input class="login-form-button" type="submit" value="update" onclick="" id="">
-             
-        </form>
-
-        <div class="container-login-singup">
-      
-              <section class="section-signup">
-                  <form id="form_eliminar" action="/usuarios/delete" method="post">
-                      <legend>ELIMINAR CUENTA</legend>                  
-                      <input class="login-form-button" type="submit" value="ELIMINAR">
-                  </form>
-              </section>
+		<input class="updateButton" type="submit" value="update" onclick="" id=""> 
+    </form>
+    
+    <form class="deleteUser" id="form_eliminar" action="/usuarios/delete" method="post">
+		<legend>ELIMINAR CUENTA</legend>                  
+			<input class="login-form-button" type="submit" value="ELIMINAR">
+      <p>Se perderan los Datos y las Tareas sin oportunidad de recuperacion</p>
+		</form>
+    
 
         
-    </section>       
+       
 </main>
 
   <%- include ("template/footer.ejs"); %>
